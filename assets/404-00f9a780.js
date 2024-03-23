@@ -1,0 +1,1 @@
+import{_ as e}from"./_plugin-vue_export-helper-c27b6911.js";import{c as t,v as s,m as o,o as c}from"./index-2342c26a.js";const r="/hannah-project/assets/404-2ee16551.svg",a={},n=o("img",{src:r,alt:""},null,-1);function _(l,m){return c(),t("div",null,[n,s(" 抱歉，您访问的页面不存在 ")])}const f=e(a,[["render",_]]);export{f as default};

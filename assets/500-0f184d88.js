@@ -1,0 +1,1 @@
+import{_ as e}from"./_plugin-vue_export-helper-c27b6911.js";import{c as t,v as s,m as o,o as c}from"./index-2342c26a.js";const a="/hannah-project/assets/500-0e2ea61d.svg",r={},n=o("img",{src:a,alt:""},null,-1);function _(l,m){return c(),t("div",null,[n,s(" 抱歉，服务器出错了 ")])}const f=e(r,[["render",_]]);export{f as default};
