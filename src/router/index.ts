@@ -1,6 +1,7 @@
 import type { App } from 'vue'
 import { RouteRecordRaw, createRouter, createWebHashHistory } from 'vue-router'
 import { PageEnum } from '@/enums/pageEnum'
+import { HomeRoute } from './base'
 const Layout = () => import('../layout/index.vue')
 const rootRoute: RouteRecordRaw = {
     path: '/',
@@ -11,20 +12,13 @@ const rootRoute: RouteRecordRaw = {
         title: 'Root'
     },
     children:[
-        {
-            path: PageEnum.BASE_HOME,
-            name: PageEnum.BASE_HOME_NAME,
-            component: () => import('@/views/home/index.vue'),
-            meta: {
-                title: 'Home',
-                activeMenuName: 'Home'
-            }
-        }
+        HomeRoute
     ]
 
 }
 const routes: RouteRecordRaw[] = [
-    rootRoute
+    rootRoute,
+    
 ]
 
 const router = createRouter({
