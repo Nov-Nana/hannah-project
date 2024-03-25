@@ -9,6 +9,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@vicons/antd": "^0.12.0",
+    "@vicons/carbon": "^0.12.0",
+    "@vicons/ionicons5": "^0.12.0",
     "color": "^4.2.3",
     "crypto-js": "^4.2.0",
     "naive-ui": "^2.38.1",

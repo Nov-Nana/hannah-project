@@ -1,6 +1,6 @@
 // 主题配置
 export const theme = {
-    darkTheme: false,
+    darkTheme: true,
     appTheme: '#54d6a9',
     appThemeDetail: null
 }

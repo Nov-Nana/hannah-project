@@ -1,0 +1,99 @@
+@import './var.scss';
+$namespace: 'get';
+$theme-light: 'light';
+$theme-dark: 'dark';
+
+@mixin get($block) {
+    $M: $namespace + '-' + $block;
+
+    .#{$M} {
+        @content;
+    }
+}
+
+// 获取背景颜色
+@mixin get-bg-color($target) {
+    @include themeify {
+        background-color: themed($target);
+    }
+}
+
+// 处理样式
+@mixin themeify {
+    // 遍历主题
+    @each $theme-name, $theme-map in $themes {
+        //!global 把局部变量提升为全局变量 
+        $theme-map: $theme-map !global;
+        // 判断当前主题
+        [data-theme='#{$theme-name}'] & {
+            @content;
+        }
+    }
+}
+
+
+$light: (
+    // 文字颜色
+    color: $--color-text,
+    // aside 背景
+    aside-background-color: $--color-light-bg-1,
+    //背景
+    background-color: $--color-light-bg-3,
+    background-color1: $--color-light-bg-1,
+    background-color1-shallow: $--color-light-bg-1-shallow,
+    background-color2: $--color-light-bg-2,
+    background-color2-shallow: $--color-light-bg-2-shallow,
+    background-color3: $--color-light-bg-3,
+    background-color3-shallow: $--color-light-bg-3-shallow,
+    background-color4: $--color-light-bg-4,
+    background-color4-shallow: $--color-light-bg-4-shallow,
+    background-color5: $--color-light-bg-5,
+    background-color5-shallow: $--color-light-bg-5-shallow,
+    // 毛玻璃背景
+    filter-color: $--filter-color-login-light,
+    filter-color-shallow: $--filter-color-login-light-shallow,
+    //渐变背景
+    background-image: linear-gradient(120deg, $--color-light-bg 0%, $--color-light-bg 100%),
+    // 斑点背景
+    background-point: (linear-gradient($--color-light-bg-1 14px, transparent 0),
+        linear-gradient(90deg, transparent 14px, $--color-dark-bg-5 0)),
+    // hover 边框颜色
+    hover-border-color: $--color-light-bg-4,
+    hover-border-color-shallow: $--color-light-bg-3,
+    // 阴影
+    box-shadow: 0 8px 10px #00000012
+);
+$dark: (
+    // 文字颜色
+    color: $--color-text-4,
+    //背景
+    background-color: $--color-dark-bg-1,
+    background-color1: $--color-dark-bg-1,
+    background-color1-shallow: $--color-dark-bg-1-shallow,
+    background-color2: $--color-dark-bg-2,
+    background-color2-shallow: $--color-dark-bg-2-shallow,
+    background-color3: $--color-dark-bg-3,
+    background-color3-shallow: $--color-dark-bg-3-shallow,
+    background-color4: $--color-dark-bg-4,
+    background-color4-shallow: $--color-dark-bg-4-shallow,
+    background-color5: $--color-dark-bg-5,
+    background-color5-shallow: $--color-dark-bg-5-shallow,
+    // 毛玻璃背景
+    filter-color: $--filter-color-login-dark,
+    filter-color-shallow: $--filter-color-login-dark-shallow,
+    //渐变背景
+    background-image: linear-gradient(120deg, $--color-dark-bg-1 0%, $--color-dark-bg-1 100%),
+    // 斑点背景
+    background-point: (linear-gradient($--color-dark-bg-1 14px, transparent 0),
+        linear-gradient(90deg, transparent 14px, $--color-text-2 0)),
+    // hover 边框颜色
+    hover-border-color: $--color-dark-bg-5,
+    hover-border-color-shallow: $--color-dark-bg-3,
+    // 阴影
+    box-shadow: 0 8px 10px #1e1e1e1f
+);
+
+$themes: (
+    #{$theme-light}: $light,
+    #{$theme-dark}: $dark
+);

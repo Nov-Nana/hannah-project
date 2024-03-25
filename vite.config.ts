@@ -16,12 +16,12 @@ export default defineConfig({
     // postcss: {
     //   plugins: [postcssPresetEnv]
     // },
-    // preprocessorOptions: {
-    //   scss: {
-    //     javascriptEnabled: true,
-    //     additionalData: `@import "./src/styles/common/style.scss";`
-    //   }
-    // }
+    preprocessorOptions: {
+      scss: {
+        javascriptEnabled: true,
+        additionalData: `@import "./src/styles/common/style.scss";`
+      }
+    }
   },
   plugins: [vue()],
 })

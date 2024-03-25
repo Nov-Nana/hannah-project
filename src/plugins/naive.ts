@@ -8,7 +8,10 @@ import {
     NLayoutContent,
     NLayoutSider,
     NLayoutFooter,
-    NThemeEditor 
+    NThemeEditor ,
+    NText,
+    NA,
+    NIcon
 
 } from 'naive-ui'
 
@@ -21,7 +24,10 @@ const naive = create({
         NLayoutContent,
         NLayoutSider,
         NLayoutFooter,
-        NThemeEditor 
+        NThemeEditor,
+        NText,
+        NA,
+        NIcon
     ]
 })
 

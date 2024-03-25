@@ -3,7 +3,6 @@ import App from './App.vue'
 import { setupNaive } from './plugins'
 import { setupStore } from './store'
 import { setupRouter,router } from './router'
-import '@/styles/common/style.scss'
 
 async function appInit(){
     const app = createApp(App)
