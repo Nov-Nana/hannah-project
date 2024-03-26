@@ -21,7 +21,14 @@ import {
     NDialogProvider,
     NMessageProvider,
     NNotificationProvider,
-    NDropdown
+    NDropdown,
+    NModalProvider,
+    NModal,
+    NDivider,
+    NVirtualList,
+    NGrid,
+    NGridItem,
+    NScrollbar
 
 } from 'naive-ui'
 
@@ -47,7 +54,14 @@ const naive = create({
         NDialogProvider,
         NMessageProvider,
         NNotificationProvider,
-        NDropdown
+        NDropdown,
+        NModalProvider,
+        NModal,
+        NDivider,
+        NVirtualList,
+        NGrid,
+        NGridItem,
+        NScrollbar
     ]
 })
 

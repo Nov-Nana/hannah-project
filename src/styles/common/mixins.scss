@@ -17,12 +17,6 @@ $theme-dark: 'dark';
         background-color: themed($target);
     }
 }
-// 获取对比背景色
-@mixin get-other-bg-color($target) {
-    @include themeify {
-        background-color: themed($target);
-    }
-}
 
 // 获取文字颜色
 @mixin get-text-color($target) {
@@ -30,16 +24,24 @@ $theme-dark: 'dark';
         color: themed($target);
     }
 }
+
 // 获取阴影色
 @mixin get-box-shadow($target) {
     @include themeify {
         box-shadow: 0 0 20px 5px themed($target);
     }
 }
-// 获取文字阴影色
-@mixin get-login-text-color($target) {
+
+// hover边框颜色
+@mixin hover-border-color($target) {
     @include themeify {
-        color: themed($target);
+        border: 1px solid themed($target);
+    }
+}
+
+@mixin get-color-box-shadow($target) {
+    @include themeify {
+        box-shadow: 0 6px 16px -9px themed($target);
     }
 }
 
@@ -88,6 +90,8 @@ $light: (
     filter-color-shallow: $--filter-color-login-dark-shallow,
     other-background-color: $--color-dark-black,
     login-text-color: #686868,
+    color-item-bg: rgba(218, 218, 218, 0.5),
+    color-item-shadow: rgba(0, 0, 0, .08),
 );
 $dark: (
     // 文字颜色
@@ -109,6 +113,8 @@ $dark: (
     filter-color-shallow: $--filter-color-login-light-shallow,
     other-background-color: $--color-light-bg,
     login-text-color: rgb(196 196 196),
+    color-item-bg: rgba(12, 12, 12, 0.5),
+    color-item-shadow: rgba(205, 205, 205, 0.559),
 );
 
 $themes: (

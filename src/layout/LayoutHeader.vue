@@ -1,6 +1,7 @@
 <script setup lang='ts'>
 import {ThemeSelect} from '@/components/ThemeSelect/'
 import {LangSelect} from '@/components/LangSelect/'
+import {ThemeColorSelect} from '@/components/ThemeColorSelect/'
 </script>
 <template>
     <n-layout-header class="header">
@@ -18,6 +19,7 @@ import {LangSelect} from '@/components/LangSelect/'
             <n-flex justify="end">
                 <slot name="right-left"></slot>
                 <LangSelect></LangSelect>
+                <ThemeColorSelect></ThemeColorSelect>
                 <ThemeSelect></ThemeSelect>
                 <slot name="right-right"></slot>
             </n-flex>

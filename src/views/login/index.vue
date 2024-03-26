@@ -198,7 +198,7 @@ onUpdated(() => {
                 letter-spacing: 10px;
 
                 span {
-                    @include get-login-text-color('login-text-color');
+                    @include get-text-color('login-text-color');
                     text-shadow: 1px -1px #fff, -1px 1px #999, -6px 4px 5px #80808080;
 
                 }
@@ -227,7 +227,7 @@ onUpdated(() => {
             bottom: 0;
             left: 0;
             z-index: 1;
-            @include get-other-bg-color('other-background-color');
+            @include get-bg-color('other-background-color');
             filter: url('#blob');
 
 
@@ -239,7 +239,7 @@ onUpdated(() => {
                 position: absolute;
                 width: var(--w);
                 height: var(--w);
-                @include get-other-bg-color('other-background-color');
+                @include get-bg-color('other-background-color');
                 border-radius: 50%;
                 animation: moveBubbles var(--d) infinite linear;
 
