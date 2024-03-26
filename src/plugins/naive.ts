@@ -11,7 +11,17 @@ import {
     NThemeEditor ,
     NText,
     NA,
-    NIcon
+    NIcon,
+    NButton,
+    NForm,
+    NInput,
+    NFormItem,
+    NCheckbox,
+    NLoadingBarProvider,
+    NDialogProvider,
+    NMessageProvider,
+    NNotificationProvider,
+    NDropdown
 
 } from 'naive-ui'
 
@@ -27,7 +37,17 @@ const naive = create({
         NThemeEditor,
         NText,
         NA,
-        NIcon
+        NIcon,
+        NButton,
+        NForm,
+        NFormItem,
+        NInput,
+        NCheckbox,
+        NLoadingBarProvider,
+        NDialogProvider,
+        NMessageProvider,
+        NNotificationProvider,
+        NDropdown
     ]
 })
 

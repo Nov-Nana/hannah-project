@@ -1,5 +1,6 @@
 <script setup lang='ts'>
 import {ThemeSelect} from '@/components/ThemeSelect/'
+import {LangSelect} from '@/components/LangSelect/'
 </script>
 <template>
     <n-layout-header class="header">
@@ -16,6 +17,7 @@ import {ThemeSelect} from '@/components/ThemeSelect/'
             </n-flex>
             <n-flex justify="end">
                 <slot name="right-left"></slot>
+                <LangSelect></LangSelect>
                 <ThemeSelect></ThemeSelect>
                 <slot name="right-right"></slot>
             </n-flex>
@@ -27,13 +29,16 @@ $--padding: 20px;
 .header{
     height: $--header-height;
     line-height: $--header-height;
-    background-color: pink;
     padding: 0 $--padding;
     .header-left{
         width: 100px;
     }
     .header-center{
         width: 100px;
+    }
+    .n-flex{
+        height: $--header-height;
+        align-items: center;
     }
 }
 </style>
