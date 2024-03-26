@@ -10,7 +10,8 @@ const darkTheme = useDarkThemeHook()
 
 onMounted(() => {
   // 设置主题
-  setHTMLTheme()
+  setHTMLTheme()  
+  
 })
 </script>
 
