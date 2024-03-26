@@ -68,7 +68,7 @@ function createBubble(bubbles: Element | null) {
         let bubble = document.createElement('div')
         bubble.className = 'bubble'
         const w = Math.random() * 150 + 100
-        const x = Math.random() * 100
+        const x = Math.random() * 100 - 10
         const y = Math.random() * 100 + 150
         const d = Math.random() * 2 + 1
         bubble.style.setProperty('--w', `${w}px`)
