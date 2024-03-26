@@ -8,7 +8,20 @@ import {
     NLayoutContent,
     NLayoutSider,
     NLayoutFooter,
-    NThemeEditor 
+    NThemeEditor ,
+    NText,
+    NA,
+    NIcon,
+    NButton,
+    NForm,
+    NInput,
+    NFormItem,
+    NCheckbox,
+    NLoadingBarProvider,
+    NDialogProvider,
+    NMessageProvider,
+    NNotificationProvider,
+    NDropdown
 
 } from 'naive-ui'
 
@@ -21,7 +34,20 @@ const naive = create({
         NLayoutContent,
         NLayoutSider,
         NLayoutFooter,
-        NThemeEditor 
+        NThemeEditor,
+        NText,
+        NA,
+        NIcon,
+        NButton,
+        NForm,
+        NFormItem,
+        NInput,
+        NCheckbox,
+        NLoadingBarProvider,
+        NDialogProvider,
+        NMessageProvider,
+        NNotificationProvider,
+        NDropdown
     ]
 })
 

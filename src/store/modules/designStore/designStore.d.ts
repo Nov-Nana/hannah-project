@@ -1,4 +1,4 @@
-import { ThemeEnum } from '../../../enums/styleEnum'
+import { ThemeEnum,LanguageEnum } from '../../../enums/styleEnum'
 /**
  * @description 主题颜色信息
  */
@@ -21,5 +21,6 @@ export interface DesignStateType {
     // 应用主题
     appTheme: string
     // 应用主题详情
-    appThemeDetail: AppThemeColorType | null
+    appThemeDetail: AppThemeColorType | null,
+    lang: LanguageEnum
 }

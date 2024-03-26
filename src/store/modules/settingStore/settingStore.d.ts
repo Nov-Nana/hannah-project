@@ -1,5 +1,6 @@
 import { SettingStoreEnums } from '@/enums/settingEnum'
 
 export interface SettingStoreType {
-    [SettingStoreEnums. ASIDE_ALL_COLLAPSED]: boolean
+    [SettingStoreEnums. ASIDE_ALL_COLLAPSED]: boolean,
+    lang: string
 }

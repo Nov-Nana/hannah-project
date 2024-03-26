@@ -15,12 +15,20 @@ export const useSettingStore = defineStore('settingStore', {
         getAsideCollapsedWidth(): number {
             return this.asideAllCollapsed ? 0 : asideCollapsedWidth
         },
+        getLang(): string {
+            return this.lang
+        }
     },
     actions: {
         setItem<T extends keyof SettingStoreType, K extends SettingStoreType[T]>(key: T, value: K): void {
             this.$patch(state => {
                 state[key] = value
             })
+            setLocalStorage(STORAGE_SYSTEM_SETTING, this.$state)
+        },
+        changeLang(lang: string): void {
+            if (this.lang === lang) return
+            this.lang = lang
             setLocalStorage(STORAGE_SYSTEM_SETTING, this.$state)
         }
     }

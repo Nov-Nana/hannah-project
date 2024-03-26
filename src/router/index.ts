@@ -1,7 +1,9 @@
 import type { App } from 'vue'
 import { RouteRecordRaw, createRouter, createWebHashHistory } from 'vue-router'
 import { PageEnum } from '@/enums/pageEnum'
-import { HomeRoute } from './base'
+import { HomeRoute, LoginRoute } from './base'
+import {createRouterGuard} from './router-guards'
+
 const Layout = () => import('../layout/index.vue')
 const rootRoute: RouteRecordRaw = {
     path: '/',
@@ -18,7 +20,7 @@ const rootRoute: RouteRecordRaw = {
 }
 const routes: RouteRecordRaw[] = [
     rootRoute,
-    
+    LoginRoute
 ]
 
 const router = createRouter({
@@ -27,5 +29,6 @@ const router = createRouter({
 })
 export function setupRouter(app: App<Element>) {
     app.use(router)
+    createRouterGuard(router)
 }
 export {router}
