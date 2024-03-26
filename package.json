@@ -4,8 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "cross-env YARN_VERSION=1 vite",
-    "build": "vue-tsc && vite build",
+    "dev": "vite",
+    "build": " vue-tsc && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
