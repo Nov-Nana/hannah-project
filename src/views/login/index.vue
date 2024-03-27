@@ -104,12 +104,8 @@ onUpdated(() => {
 <template>
     <div class="get-login-box">
         <LayoutHeader>
-            <template #left>
-                <span style="width: 1px;"></span>
-            </template>
         </LayoutHeader>
         <div class="get-login-content">
-
             <div class="login-account">
                 <div class="login-account-top">
                     {{ t('login.title') }}
@@ -279,11 +275,12 @@ onUpdated(() => {
         width: 90vw !important;
     }
 }
-@media  only screen and (max-width: 320px){
-    .login-account-top{
+
+@media only screen and (max-width: 320px) {
+    .login-account-top {
         font-size: 2rem !important;
         height: 20% !important;
-        padding: 1rem  !important;
+        padding: 1rem !important;
     }
 }
 </style>

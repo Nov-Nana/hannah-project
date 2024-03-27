@@ -5,7 +5,7 @@ import {ThemeColorSelect} from '@/components/ThemeColorSelect/'
 </script>
 <template>
     <n-layout-header class="header">
-        <n-flex justify="space-between" :wrap="false">
+        <n-flex :size="10" justify="space-between" :wrap="false">
             <n-flex justify="start">
                 <slot name="left">
                     <!-- <div class="header-left"></div> -->
