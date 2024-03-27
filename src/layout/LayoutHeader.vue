@@ -1,7 +1,7 @@
 <script setup lang='ts'>
-import {ThemeSelect} from '@/components/ThemeSelect/'
-import {LangSelect} from '@/components/LangSelect/'
-import {ThemeColorSelect} from '@/components/ThemeColorSelect/'
+import { ThemeSelect } from '@/components/ThemeSelect/'
+import { LangSelect } from '@/components/LangSelect/'
+import { ThemeColorSelect } from '@/components/ThemeColorSelect/'
 </script>
 <template>
     <n-layout-header class="header">
@@ -16,7 +16,7 @@ import {ThemeColorSelect} from '@/components/ThemeColorSelect/'
                     <div class="header-center"></div>
                 </slot>
             </n-flex>
-            <n-flex style="flex-shrink: 2;" justify="end">
+            <n-flex justify="end" :wrap="false">
                 <slot name="right-left"></slot>
                 <LangSelect></LangSelect>
                 <ThemeColorSelect></ThemeColorSelect>
@@ -28,17 +28,21 @@ import {ThemeColorSelect} from '@/components/ThemeColorSelect/'
 </template>
 <style lang='scss' scoped>
 $--padding: 20px;
-.header{
+
+.header {
     height: $--header-height;
     line-height: $--header-height;
     padding: 0 $--padding;
-    .header-left{
+
+    .header-left {
         width: 100px;
     }
-    .header-center{
+
+    .header-center {
         width: 100px;
     }
-    .n-flex{
+
+    .n-flex {
         height: $--header-height;
         align-items: center;
     }
