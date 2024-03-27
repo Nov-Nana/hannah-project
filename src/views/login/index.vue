@@ -104,6 +104,9 @@ onUpdated(() => {
 <template>
     <div class="get-login-box">
         <LayoutHeader>
+            <template #left>
+                <span style="width: 1px;"></span>
+            </template>
         </LayoutHeader>
         <div class="get-login-content">
 
