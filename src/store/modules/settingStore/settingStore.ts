@@ -9,11 +9,11 @@ const storageSetting = getLocalStorage(STORAGE_SYSTEM_SETTING)
 export const useSettingStore = defineStore('settingStore', {
     state: (): SettingStoreType => storageSetting || systemSetting,
     getters: {
-        getAsideAllCollapsed(): boolean {
-            return this.asideAllCollapsed
+        getCollapsed(): boolean {
+            return this.isCollapsed
         },
-        getAsideCollapsedWidth(): number {
-            return this.asideAllCollapsed ? 0 : asideCollapsedWidth
+        getCollapsedWidth(): number {
+            return this.isCollapsed ? 0 : asideCollapsedWidth
         },
         getLang(): string {
             return this.lang
@@ -24,6 +24,10 @@ export const useSettingStore = defineStore('settingStore', {
             this.$patch(state => {
                 state[key] = value
             })
+            setLocalStorage(STORAGE_SYSTEM_SETTING, this.$state)
+        },
+        setCollapsed(value: boolean): void {
+            this.isCollapsed = value
             setLocalStorage(STORAGE_SYSTEM_SETTING, this.$state)
         },
         changeLang(lang: string): void {

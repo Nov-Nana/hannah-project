@@ -6,8 +6,5 @@ export const theme = {
     appTheme: '#54d6a9',
     appThemeDetail: null
 }
-// 默认语言
-export const lang: LanguageEnum = LanguageEnum.ZH
-
 // 全局边框圆角
 export const borderRadius = '4px'

@@ -21,6 +21,5 @@ export interface DesignStateType {
     // 应用主题
     appTheme: string
     // 应用主题详情
-    appThemeDetail: AppThemeColorType | null,
-    lang: LanguageEnum
+    appThemeDetail: AppThemeColorType | null
 }

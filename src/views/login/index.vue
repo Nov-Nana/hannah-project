@@ -1,8 +1,8 @@
 <script setup lang='ts'>
 import LayoutHeader from '@/layout/LayoutHeader.vue';
 import LayoutFooter from '@/layout/LayoutFooter.vue';
-import { onMounted, reactive, ref, toRefs, watch } from 'vue';
-import { useDesignStore } from '@/store/modules/designStore/designStore';
+import { onMounted, reactive, ref,  watch } from 'vue';
+import { useSettingStore } from '@/store/modules/settingStore/settingStore';
 import { setLocalStorage } from '@/utils';
 import { StorageEnum } from '@/enums/storageEnum'
 import { cryptoEncode } from '@/utils/crypto';
@@ -21,9 +21,8 @@ const formInline = reactive({
     username: 'admin',
     password: '123456'
 })
-const designStore = useDesignStore()
-const { getLang } = toRefs(designStore)
-watch(getLang, () => {
+const settingStore = useSettingStore()
+watch(() => settingStore.getLang, () => {
     formRef.value.restoreValidation()
     rules.username.message = `${t('login.user_placeholder')}`
     rules.password.message = `${t('login.pwd_placeholder')}`

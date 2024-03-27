@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
 import { DesignStateType, AppThemeColorType } from './designStore.d'
-import { theme, lang } from '@/settings/designSetting'
-import { ThemeEnum, LanguageEnum } from "@/enums/styleEnum";
+import { theme } from '@/settings/designSetting'
+import { ThemeEnum } from "@/enums/styleEnum";
 import { StorageEnum } from "@/enums/storageEnum";
 import { getLocalStorage, setLocalStorage } from '@/utils'
 
@@ -17,7 +17,6 @@ export const useDesignStore = defineStore('design', {
         themeName: darkTheme ? ThemeEnum.DARK : ThemeEnum.LIGHT,
         appTheme,
         appThemeDetail,
-        lang
     }),
     getters: {
         getDarkTheme(): boolean {
@@ -29,9 +28,6 @@ export const useDesignStore = defineStore('design', {
         getAppThemeDetail(): AppThemeColorType | null {
             return this.appThemeDetail
         },
-        getLang(): LanguageEnum {
-            return this.lang
-        }
     },
     actions: {
         // 切换主题
@@ -44,12 +40,6 @@ export const useDesignStore = defineStore('design', {
         setAppColor(color: AppThemeColorType): void {
             this.appTheme = color.hex
             this.appThemeDetail = color
-            setLocalStorage(STORAGE_DESIGN, this.$state)
-        },
-        // 设置语言
-        setLang(lang: LanguageEnum): void {
-            if (this.lang === lang) return
-            this.lang = lang
             setLocalStorage(STORAGE_DESIGN, this.$state)
         }
 
