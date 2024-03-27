@@ -1,4 +1,13 @@
-import { CloseOutline, ColorWandOutline, LanguageOutline, LockClosedOutline, Moon, PersonOutline, SunnyOutline } from '@vicons/ionicons5'
+import {
+    CloseOutline,
+    ColorWandOutline, 
+    LanguageOutline, 
+    LockClosedOutline, 
+    Moon, 
+    SunnyOutline,
+    PersonOutline,
+    LogOutOutline
+} from '@vicons/ionicons5'
 
 const ionicons5 = {
     Moon,
@@ -7,7 +16,8 @@ const ionicons5 = {
     LockClosedOutline,
     LanguageOutline,
     ColorWandOutline,
-    CloseOutline
+    CloseOutline,
+    LogOutOutline
 }
 
 export const icon = {

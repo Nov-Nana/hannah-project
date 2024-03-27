@@ -1,7 +1,8 @@
 import { StorageEnum } from "@/enums/storageEnum"
-import { getLocalStorage } from "."
+import { getLocalStorage,clearLocalStorage } from "."
 import { cryptoDecode } from "./crypto"
 import { router } from '@/router'
+import { PageEnum } from "@/enums/pageEnum"
 
 /**
  * 判断是否登录
@@ -86,4 +87,12 @@ export const routerByPath = (path: string, isReplace?: boolean, windowOpen?: boo
         return
     }
     router.push({ path: fullPath })
+}
+
+/**
+ * 退出登录
+ */
+export const logout = ()=>{
+    clearLocalStorage(StorageEnum.STORAGE_USER_INFO)
+    routerByName(PageEnum.BASE_LOGIN_NAME)
 }

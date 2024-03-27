@@ -1,6 +1,7 @@
 <script setup lang='ts'>
 import LayoutSider from './LayoutSider.vue'
 import LayoutHeader from './LayoutHeader.vue';
+import {UserInfo} from '@/components/UserInfo'
 import { computed } from 'vue';
 import { useRoute } from 'vue-router';
 
@@ -13,11 +14,15 @@ const key = computed(() => route.meta.activeMenuName)
         <n-layout>
             <LayoutHeader>
                 <template #left>
-                    left
+                    <span></span>
                 </template>
                 <template #center>
-                    center
+                    <span></span>
                 </template>
+                <template #right-right>
+                    <UserInfo></UserInfo>
+                </template>
+                
             </LayoutHeader>
             <n-layout-content>
                 <router-view>

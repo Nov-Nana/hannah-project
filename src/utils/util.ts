@@ -1,4 +1,6 @@
 import { excludeParseEventKeyList, excludeParseEventValueList } from '@/enums/eventEnum'
+import { NIcon } from 'naive-ui'
+import { h } from 'vue'
 /**
  * JSON 序列化，支持函数和 undefined
  * @param data 
@@ -57,4 +59,24 @@ export const JSONParse = (data: string) => {
 export const evalFn = (fn: string) => {
     var Fun = Function
     return new Fun('return ' + fn)
+}
+
+/**
+ * render 图标
+ * @param icon 图标
+ * @param set 属性
+ * @returns 
+ */
+export const renderIcon = (icon: any, set = {}) => {
+    return () => h(NIcon, set, { default: () => h(icon) })
+}
+
+/**
+ * render 语言
+ * @param lang 要国际化的字段
+ * @param set 属性
+ * @param tag 要渲染成的标签
+ */
+export const renderLang = (lang: string, set = {}, tag = 'span') => {
+    return () => h(tag, set, { default: () => window['$t'](lang) })
 }

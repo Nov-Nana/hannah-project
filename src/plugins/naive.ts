@@ -28,7 +28,8 @@ import {
     NVirtualList,
     NGrid,
     NGridItem,
-    NScrollbar
+    NScrollbar,
+    NAvatar
 
 } from 'naive-ui'
 
@@ -61,7 +62,8 @@ const naive = create({
         NVirtualList,
         NGrid,
         NGridItem,
-        NScrollbar
+        NScrollbar,
+        NAvatar
     ]
 })
 
