@@ -38,6 +38,12 @@ $theme-dark: 'dark';
         border: 1px solid themed($target);
     }
 }
+// color 边框颜色
+@mixin get-border-right-color($target) {
+    @include themeify {
+        border-right: 1px solid themed($target);
+    }
+}
 
 @mixin get-color-box-shadow($target) {
     @include themeify {

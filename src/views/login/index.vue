@@ -188,11 +188,11 @@ onUpdated(() => {
             @include get-bg-color('filter-color');
             @include get-box-shadow('filter-color-shallow');
             border-radius: $--border-radius-base;
-            padding: 20px 40px;
+            padding: 1rem 2rem;
 
             &-top {
                 height: 40%;
-                font-size: 5rem;
+                font-size: 4rem;
                 text-align: center;
                 padding-top: 4rem;
                 letter-spacing: 10px;
@@ -271,9 +271,16 @@ onUpdated(() => {
     }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1024px) {
     .login-account {
         width: 90vw !important;
+    }
+}
+@media  only screen and (max-width: 320px){
+    .login-account-top{
+        font-size: 2rem !important;
+        height: 20% !important;
+        padding: 1rem  !important;
     }
 }
 </style>

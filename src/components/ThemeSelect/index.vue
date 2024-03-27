@@ -13,7 +13,7 @@ const changeTheme = ()=>{
 
 </script>
 <template>
-    <n-button @click="changeTheme" title="主题">
+    <n-button quaternary @click="changeTheme" title="主题">
         <n-icon size="20" depth="1">
             <SunnyOutline v-if="designStore.getDarkTheme"></SunnyOutline>
             <Moon v-else></Moon>

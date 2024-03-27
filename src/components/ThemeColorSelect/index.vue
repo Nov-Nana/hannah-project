@@ -1,14 +1,17 @@
 <script setup lang='ts'>
-import { Ref, onBeforeMount, ref } from 'vue';
+import { Ref, computed, onBeforeMount, ref } from 'vue';
 import { icon } from '@/plugins'
 import { InfiniteScroll } from '@/components/InfiniteScroll'
 import designColor from '@/settings/designColor.json'
+import designColorRecommend from '@/settings/designColorRecommend.json'
 import { ColorInfo } from './index.d'
-
+import ColorCard from './ColorCard.vue'
+import { useDesignStore } from '@/store/modules/designStore/designStore'
+import {AppThemeColorType} from '@/store/modules/designStore/designStore.d'
 const t = window['$t']
 const { ColorWandOutline, CloseOutline } = icon.ionicons5
 const splitNumber = 50
-const designColorSplit: Ref<Array<ColorInfo> | undefined> = ref()
+const designColorSplit: Ref<ColorInfo[] | undefined> = ref()
 let index: number = 0
 onBeforeMount(() => {
     index++
@@ -23,9 +26,14 @@ const getMoreData = (num: number) => {
 }
 
 const modalShow = ref(false)
+const designStore = useDesignStore()
+const appThemeDetail = computed(() => designStore.getAppThemeDetail)
+function changeThemeColor(item: AppThemeColorType){
+    designStore.setAppColor(item)
+}
 </script>
 <template>
-    <n-button title="颜色" @click="modalShow = true">
+    <n-button quaternary title="颜色" @click="modalShow = true">
         <n-icon size="20" depth="1">
             <ColorWandOutline></ColorWandOutline>
         </n-icon>
@@ -44,14 +52,24 @@ const modalShow = ref(false)
             <div class="theme-color-content">
                 <InfiniteScroll :data="designColorSplit" @getMoreData="getMoreData">
                     <template v-slot:content="slotProps">
-                        <n-grid style="padding: 5px 0;" :x-gap="4" :y-gap="18" cols="2 s:2 m:2 l:4 xl:4 2xl:4" responsive="screen">
+                        <n-grid style="padding: 5px 0; width: 80%" :x-gap="4" :y-gap="18"
+                            cols="1 s:2 m:2 l:3 xl:3 2xl:3" responsive="screen">
+                            <n-grid-item span="1" v-for="item in designColorRecommend" :key="item.hex">
+                                <ColorCard :item="item" @changeThemeColor="changeThemeColor"></ColorCard>
+                            </n-grid-item>
+                            <n-grid-item span='4'>
+                                <n-divider />
+                            </n-grid-item>
                             <n-grid-item span="1" v-for="item in slotProps.list" :key="item.hex">
-                                <div class="color-card-box">
-                                    {{ item.name }}
-
-                                </div>
+                                <ColorCard :item="item" @changeThemeColor="changeThemeColor"></ColorCard>
                             </n-grid-item>
                         </n-grid>
+                        <n-flex vertical class="current-color-box">
+                            <span v-if="appThemeDetail" class="name">{{ appThemeDetail.name }}</span>
+                            <span v-else class="name">中国色</span>
+                            <span v-if="appThemeDetail" class="pinyin">BIKONLV</span>
+                            <div v-if="appThemeDetail" class="color" :style="{backgroundColor: appThemeDetail.hex}"></div>
+                        </n-flex>
                     </template>
                 </InfiniteScroll>
             </div>
@@ -89,18 +107,30 @@ const modalShow = ref(false)
         position: relative;
         height: calc(100% - 6rem);
 
-        .color-card-box {
-            width: 80%;
-            height: 70px;
-            padding: 10px 20px;
-            cursor: pointer;
-            border-radius: 5px;
-            @include get-bg-color('color-item-bg');
-            @include get-color-box-shadow('color-item-shadow');
+        .current-color-box {
+            position: absolute;
+            bottom: 0px;
+            right: 5px;
+            width: 20%;
+            height: 100%;
+            align-items: center;
 
-            &:hover {
-                @include hover-border-color('background-color5')
+            .name {
+                text-align: center;
+                font-size: 6rem;
+                margin-bottom: 1rem;
             }
+
+            .pintin {
+                font-size: .5rem;
+            }
+
+            .color {
+                margin-top: 1rem;
+                width: 50%;
+                height: 2rem;
+            }
+
         }
 
     }
@@ -109,6 +139,40 @@ const modalShow = ref(false)
         height: 1rem;
         text-align: center;
         line-height: 3.5rem;
+    }
+}
+
+@media screen and (min-width: 1124px) {
+    .current-color-box {
+        padding: 0 2rem !important;
+
+        .name {
+            font-size: 7rem !important;
+        }
+    }
+}
+
+@media screen and (max-width: 820px) {
+    .current-color-box {
+        .name {
+            font-size: 5rem !important;
+        }
+    }
+}
+
+@media screen and (max-width: 542px) {
+    .current-color-box {
+        .name {
+            font-size: 3rem !important;
+        }
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .current-color-box {
+        .name {
+            font-size: 2rem !important;
+        }
     }
 }
 </style>

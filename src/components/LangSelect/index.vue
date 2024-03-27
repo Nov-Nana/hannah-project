@@ -24,7 +24,7 @@ const handleSelect = (key: LanguageEnum) => {
 </script>
 <template>
     <n-dropdown trigger="click" :options="options" @select="handleSelect" :show-arrow="true">
-        <n-button>
+        <n-button quaternary>
             <n-icon size="20" depth="1">
                 <LanguageOutline></LanguageOutline>
             </n-icon>
