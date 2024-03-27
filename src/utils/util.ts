@@ -1,6 +1,8 @@
 import { excludeParseEventKeyList, excludeParseEventValueList } from '@/enums/eventEnum'
 import { NIcon } from 'naive-ui'
 import { h } from 'vue'
+import ResizeObserver from 'resize-observer-polyfill';
+
 /**
  * JSON 序列化，支持函数和 undefined
  * @param data 
@@ -79,4 +81,16 @@ export const renderIcon = (icon: any, set = {}) => {
  */
 export const renderLang = (lang: string, set = {}, tag = 'span') => {
     return () => h(tag, set, { default: () => window['$t'](lang) })
+}
+
+export const resize = (chart: any) => {
+    const observer = new ResizeObserver(() => {
+        chart.resize();
+    });
+    let myEcharts = document.getElementById('myEcharts')
+    if (myEcharts) {
+        observer.observe(myEcharts);
+    } else {
+        console.error('找不到 myEcharts')
+    }
 }

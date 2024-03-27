@@ -29,7 +29,10 @@ import {
     NGrid,
     NGridItem,
     NScrollbar,
-    NAvatar
+    NAvatar,
+    NMenu,
+    NDataTable,
+    NProgress
 
 } from 'naive-ui'
 
@@ -63,7 +66,10 @@ const naive = create({
         NGrid,
         NGridItem,
         NScrollbar,
-        NAvatar
+        NAvatar,
+        NMenu,
+        NDataTable,
+        NProgress
     ]
 })
 

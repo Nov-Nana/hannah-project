@@ -44,6 +44,11 @@ $theme-dark: 'dark';
         border-right: 1px solid themed($target);
     }
 }
+@mixin get-border-color($target) {
+    @include themeify {
+        border-color: themed($target);
+    }
+}
 
 @mixin get-color-box-shadow($target) {
     @include themeify {
@@ -77,6 +82,7 @@ $theme-dark: 'dark';
 $light: (
     // 文字颜色
     color: $--color-text,
+    color1: $--color-text-5,
     // aside 背景
     aside-background-color: $--color-light-bg-1,
     //背景
@@ -102,6 +108,7 @@ $light: (
 $dark: (
     // 文字颜色
     color: $--color-text-4,
+    color1: $--color-text-6,
     //背景
     background-color: $--color-dark-black,
     background-color1: $--color-dark-bg-1,

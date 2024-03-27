@@ -1,11 +1,38 @@
 <script setup lang='ts'>
 import { useSettingStore } from '@/store/modules/settingStore/settingStore'
 import Avatar from '@/assets/avatar.jpg'
+import { RouterLink, useRoute } from 'vue-router';
+import { computed, h, reactive } from 'vue';
+import { PageEnum } from '@/enums/pageEnum';
+import { icon } from '@/plugins';
+import { renderIcon } from '@/utils';
 
 const settings = useSettingStore()
 // 折叠
 const setCollapsed = (value: boolean) => {
     settings.setCollapsed(value)
+}
+const route = useRoute()
+const menuValue = computed(() => route.name)
+const { Home } = icon.ionicons5
+const menuOptions = menuOptionsInit()
+
+function menuOptionsInit() {
+    const t = window['$t']
+    return reactive([
+        {
+            label: () => {
+                return h(
+                    RouterLink,
+                    { to: { name: PageEnum.BASE_HOME_NAME } },
+                    { default: () => t('global.home') }
+                )
+            },
+            key: 'home',
+            icon: renderIcon(Home)
+        },
+
+    ])
 }
 </script>
 <template>
@@ -23,6 +50,8 @@ const setCollapsed = (value: boolean) => {
                     </slot>
                 </div>
             </n-flex>
+            <n-menu :value="menuValue" :options="menuOptions">
+            </n-menu>
         </div>
     </n-layout-sider>
 </template>

@@ -1,3 +1,8 @@
+import { 
+    AccountBookOutlined, 
+    MessageOutlined, 
+    ShoppingCartOutlined 
+} from '@vicons/antd'
 import {
     CloseOutline,
     ColorWandOutline, 
@@ -6,8 +11,13 @@ import {
     Moon, 
     SunnyOutline,
     PersonOutline,
-    LogOutOutline
+    LogOutOutline,
+    HomeOutline,
+    Home,
+    Person
 } from '@vicons/ionicons5'
+
+
 
 const ionicons5 = {
     Moon,
@@ -17,9 +27,19 @@ const ionicons5 = {
     LanguageOutline,
     ColorWandOutline,
     CloseOutline,
-    LogOutOutline
+    LogOutOutline,
+    HomeOutline,
+    Home,
+    Person
+}
+
+const antd = { 
+    MessageOutlined, 
+    ShoppingCartOutlined, 
+    AccountBookOutlined 
 }
 
 export const icon = {
-    ionicons5
+    ionicons5,
+    antd
 }

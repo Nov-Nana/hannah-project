@@ -1,4 +1,3 @@
-import { LanguageEnum } from "@/enums/styleEnum"
 
 // 主题配置
 export const theme = {
