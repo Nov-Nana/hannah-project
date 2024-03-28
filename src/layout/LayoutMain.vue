@@ -2,11 +2,29 @@
 import LayoutSider from './LayoutSider.vue'
 import LayoutHeader from './LayoutHeader.vue';
 import {UserInfo} from '@/components/UserInfo'
-import { computed } from 'vue';
+import { computed, ref } from 'vue';
 import { useRoute } from 'vue-router';
+import {useSettingStore} from '@/store/modules/settingStore/settingStore'
+import { onMounted } from 'vue';
 
 const route = useRoute()
 const key = computed(() => route.meta.activeMenuName)
+
+const settingStore = useSettingStore()
+
+onMounted(()=>{
+    // 监控窗口大小变化
+    window.addEventListener('resize', handleResize)
+})
+const windoWWidth = ref(window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth)
+function handleResize(){
+    // 更新响应式属性
+    windoWWidth.value = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth
+    // 设置侧边栏宽度
+    if(windoWWidth.value < 1200){
+        settingStore.setCollapsed(true)
+    }
+}
 </script>
 <template>
     <n-layout has-sider position="absolute">

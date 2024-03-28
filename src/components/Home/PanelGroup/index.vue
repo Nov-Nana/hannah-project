@@ -1,5 +1,5 @@
 <script setup lang='ts'>
-import { icon } from '../../plugins'
+import { icon } from '../../../plugins'
 import { CountTo } from 'vue3-count-to'
 
 const { Person } = icon.ionicons5

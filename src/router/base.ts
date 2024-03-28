@@ -20,3 +20,27 @@ export const LoginRoute: RouteRecordRaw = {
         activeMenuName: 'Login'
     }
 }
+
+export const OfficeRoute: RouteRecordRaw = {
+    path: PageEnum.OFFICE,
+    name: PageEnum.OFFICE_NAME,
+    redirect: PageEnum.OFFICE_EXPORT_EXCEL,
+    component: ()=>import('@/views/office/index.vue'),
+    meta: {
+        title: 'Office',
+        activeMenuName: 'Office'
+    },
+    children: [
+        {
+            path: PageEnum.OFFICE_EXPORT_EXCEL,
+            name: PageEnum.OFFICE_EXPORT_EXCEL_NAME,
+            component: () => import('@/views/office/ExportExcel.vue'),
+            meta: {
+                title: 'ExportExcel',
+                activeMenuName: 'Office'
+            }
+        }
+    ]
+
+    
+}

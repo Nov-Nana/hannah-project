@@ -32,7 +32,12 @@ import {
     NAvatar,
     NMenu,
     NDataTable,
-    NProgress
+    NProgress,
+    NRadioGroup,
+    NRadio,
+    NSelect,
+    NUpload,
+    NDynamicInput
 
 } from 'naive-ui'
 
@@ -69,7 +74,12 @@ const naive = create({
         NAvatar,
         NMenu,
         NDataTable,
-        NProgress
+        NProgress,
+        NRadioGroup,
+        NRadio,
+        NSelect,
+        NUpload,
+        NDynamicInput
     ]
 })
 

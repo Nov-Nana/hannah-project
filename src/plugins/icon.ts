@@ -1,7 +1,16 @@
 import { 
     AccountBookOutlined, 
     MessageOutlined, 
-    ShoppingCartOutlined 
+    ShoppingCartOutlined,
+    FileExcelFilled,
+    FileExcelOutlined,
+    FileExcelTwotone,
+    FileZipTwotone,
+    ProfileFilled,
+    FileExclamationOutlined,
+    FieldTimeOutlined,
+    TableOutlined,
+    EditFilled
 } from '@vicons/antd'
 import {
     CloseOutline,
@@ -14,7 +23,9 @@ import {
     LogOutOutline,
     HomeOutline,
     Home,
-    Person
+    Person,
+    AddCircleOutline,
+    
 } from '@vicons/ionicons5'
 
 
@@ -30,13 +41,23 @@ const ionicons5 = {
     LogOutOutline,
     HomeOutline,
     Home,
-    Person
+    Person,
+    AddCircleOutline
 }
 
 const antd = { 
     MessageOutlined, 
     ShoppingCartOutlined, 
-    AccountBookOutlined 
+    AccountBookOutlined,
+    FileExcelFilled,
+    FileExcelOutlined,
+    FileExcelTwotone,
+    FileExclamationOutlined,
+    FileZipTwotone,
+    ProfileFilled,
+    FieldTimeOutlined,
+    TableOutlined,
+    EditFilled
 }
 
 export const icon = {

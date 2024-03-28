@@ -1,7 +1,7 @@
 <script setup lang='ts'>
 import { ref, computed, Ref } from 'vue'
 import Todo from './Todo.vue'
-import { isString } from '@/utils/type';
+import { isString } from '../../../utils';
 type todoType = {
     text: string;
     done: boolean;

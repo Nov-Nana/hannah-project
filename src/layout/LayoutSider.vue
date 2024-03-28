@@ -15,6 +15,7 @@ const setCollapsed = (value: boolean) => {
 const route = useRoute()
 const menuValue = computed(() => route.name)
 const { Home } = icon.ionicons5
+const { ProfileFilled,FileExcelFilled } = icon.antd
 const menuOptions = menuOptionsInit()
 
 function menuOptionsInit() {
@@ -28,9 +29,29 @@ function menuOptionsInit() {
                     { default: () => t('global.home') }
                 )
             },
-            key: 'home',
+            key: PageEnum.BASE_HOME_NAME,
             icon: renderIcon(Home)
         },
+        {
+            label: () => h('span', null, { default: () => t('global.office') }),
+            key: PageEnum.OFFICE_NAME,
+            icon: renderIcon(ProfileFilled),
+            children: [
+                {
+                    label: () => h(
+                        RouterLink, {
+                        to: {
+                            name: PageEnum.OFFICE_EXPORT_EXCEL_NAME
+                        }
+                    }, {
+                        default: () => t('global.export_excel')
+                    }
+                    ),
+                    key: PageEnum.OFFICE_EXPORT_EXCEL_NAME,
+                    icon: renderIcon(FileExcelFilled)
+                }
+            ]
+        }
 
     ])
 }

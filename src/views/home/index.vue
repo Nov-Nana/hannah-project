@@ -6,10 +6,10 @@ import {
     PieChart,
     RaddarChart
 } from '@/components/Charts'
-import { PanelGroup } from '@/components/PanelGroup'
-import { TodoList } from '@/components/TodoList'
-import { BoxCard } from '@/components/BoxCard'
-import { TransactionTable } from '@/components/TransactionTable'
+import { PanelGroup } from '@/components/Home/PanelGroup'
+import { TodoList } from '@/components/Home/TodoList'
+import { BoxCard } from '@/components/Home/BoxCard'
+import { TransactionTable } from '@/components/Home/TransactionTable'
 
 type chartData = {
     newVisits: {
@@ -30,7 +30,7 @@ type chartData = {
     };
 }
 
-const lineChartDataAll:chartData = {
+const lineChartDataAll: chartData = {
     newVisits: {
         expectedData: [100, 120, 161, 134, 105, 160, 165],
         actualData: [120, 82, 91, 154, 162, 140, 145]
@@ -55,7 +55,7 @@ onBeforeUnmount(() => {
     console.log('DASHBOARD')
 })
 
-const handleSetLineChartData = (type: 'newVisits' | 'messages' |'purchases' | 'shoppings') => {
+const handleSetLineChartData = (type: 'newVisits' | 'messages' | 'purchases' | 'shoppings') => {
     lineChartData.value = lineChartDataAll[type]
 }
 </script>
@@ -83,9 +83,11 @@ const handleSetLineChartData = (type: 'newVisits' | 'messages' |'purchases' | 's
             </n-grid-item>
         </n-grid>
 
-        <n-grid :x-gap="12" :y-gap="24" cols="1 s:2 m:2 l:4 xl:4 2xl:4 " responsive="screen">
+        <n-grid :x-gap="24" cols="1 s:2 m:2 l:4 xl:4 2xl:4 " responsive="screen">
             <n-grid-item :span="2">
-                <transaction-table />
+                <div class="tabele-wrapper">
+                    <transaction-table />
+                </div>
             </n-grid-item>
             <n-grid-item>
                 <TodoList></TodoList>
@@ -109,11 +111,20 @@ const handleSetLineChartData = (type: 'newVisits' | 'messages' |'purchases' | 's
         padding: 16px 16px 0;
         margin-bottom: 32px;
         margin-top: 20px;
+        @include get-box-shadow('color-item-shadow');
+        @include get-bg-color('background-color');
+
     }
 
     .chart-wrapper {
         padding: 16px 16px 0;
         margin-bottom: 32px;
+        @include get-box-shadow('color-item-shadow');
+        @include get-bg-color('background-color');
+    }
+    .tabele-wrapper{
+        @include get-box-shadow('color-item-shadow');
+        @include get-bg-color('background-color');
     }
 }
 
@@ -122,4 +133,4 @@ const handleSetLineChartData = (type: 'newVisits' | 'messages' |'purchases' | 's
         padding: 8px;
     }
 }
-</style>
+</style>@/components/Home/BoxCard
