@@ -7,6 +7,7 @@ const global = {
     page_office: 'Office',
     page_export_excel: '导出Excel',
     page_upload_excel: '上传Excel',
+    page_drag_table: '拖拽表格',
 
     cancel: '取消',
     add:'添加',

@@ -282,7 +282,7 @@ function handleAllDownload(){
                             <n-icon size="20" style="margin-right: 5px">
                                 <EditFilled></EditFilled>
                             </n-icon>
-                            {{ t('office.edit_table_data') }}
+                            {{ t('global.edit') }}
                         </n-button>
                         <n-button strong secondary type="primary" size="small" round @click="editModalShow = false">
                             <n-icon size="20" style="margin-right: 5px">

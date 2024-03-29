@@ -1,10 +1,8 @@
 <script setup lang='ts'>
-import { computed, nextTick, watch } from 'vue'
-import * as echarts from "echarts";
+import { computed, watch } from 'vue'
+import { echarts } from '@/plugins'
 import { onMounted, onUnmounted } from "vue";
 import { resize } from '../../utils'
-import Westeros from '@/settings/westeros.json'
-import Purple from '@/settings/purple-passion.json'
 import {useDesignStore} from '@/store/modules/designStore/designStore'
 
 let chart: echarts.ECharts
@@ -15,11 +13,6 @@ const initChart = (theme:string) => {
 
     // 设置图表配置和数据
     setOptions()
-
-    // 自适应大小
-    window.onresize = () => {
-        chart.resize();
-    };
 };
 // 设置图标项
 const setOptions = () => {
@@ -96,13 +89,9 @@ watch(theme, (newValue) => {
 })
 
 onMounted(() => {
-    nextTick(() => {
-        echarts.registerTheme('westeros', Westeros)
-        echarts.registerTheme('Purple', Purple)
         initChart(theme.value);
         // 解决自适应问题
         resize(chart)
-    })
 
 });
 

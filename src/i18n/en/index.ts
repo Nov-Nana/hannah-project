@@ -7,6 +7,7 @@ const global = {
     page_office: 'Office',
     page_export_excel: 'Export Excel',
     page_upload_excel: 'Upload Excel',
+    page_drag_table: 'Drag Table',
 
     cancel: 'Cancel',
     add:'Add',

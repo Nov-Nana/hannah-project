@@ -65,7 +65,7 @@ const handleSetLineChartData = (type: 'newVisits' | 'messages' | 'purchases' | '
         <div class="dashboard-linechart">
             <LineChart :chart-data="lineChartData"></LineChart>
         </div>
-        <n-grid :x-gap="24" cols="1 s:1 m:1 l:3 xl:3 2xl:3" responsive="screen">
+        <n-grid :x-gap="24" :y-gap="24" cols="1 s:1 m:1 l:3 xl:3 2xl:3" responsive="screen">
             <n-grid-item>
                 <div class="chart-wrapper">
                     <RaddarChart></RaddarChart>
@@ -83,7 +83,7 @@ const handleSetLineChartData = (type: 'newVisits' | 'messages' | 'purchases' | '
             </n-grid-item>
         </n-grid>
 
-        <n-grid :x-gap="24" cols="1 s:2 m:2 l:4 xl:4 2xl:4 " responsive="screen">
+        <n-grid :x-gap="24" :y-gap="24" cols="1 s:2 m:2 l:4 xl:4 2xl:4 " responsive="screen">
             <n-grid-item :span="2">
                 <div class="tabele-wrapper">
                     <transaction-table />

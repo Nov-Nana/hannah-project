@@ -14,11 +14,12 @@ let columns = [{
 {
     title: 'Status',
     key: 'status',
-    render(row:any) {
+    render(row: any) {
         return h(
             NTag,
             {
-                type: row.status === 'pending' ? 'error' : 'success'
+                bordered: false,
+                type: row.status === 'pending' ? undefined : 'info'
             },
             { default: () => row.status }
         )
@@ -26,9 +27,6 @@ let columns = [{
 }]
 
 const fetchData = () => {
-    // transactionList().then(res => {
-    //     data.value = res.data.items.slice(0, 8)
-    // })
     let res = {
         "code": 20000,
         "data": {

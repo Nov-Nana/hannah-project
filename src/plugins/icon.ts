@@ -1,6 +1,6 @@
-import { 
-    AccountBookOutlined, 
-    MessageOutlined, 
+import {
+    AccountBookOutlined,
+    MessageOutlined,
     ShoppingCartOutlined,
     FileExcelFilled,
     FileExcelOutlined,
@@ -11,14 +11,17 @@ import {
     FieldTimeOutlined,
     TableOutlined,
     EditFilled,
-    CloudUploadOutlined
+    CloudUploadOutlined,
+    StarOutlined,
+    DragOutlined
+
 } from '@vicons/antd'
 import {
     CloseOutline,
-    ColorWandOutline, 
-    LanguageOutline, 
-    LockClosedOutline, 
-    Moon, 
+    ColorWandOutline,
+    LanguageOutline,
+    LockClosedOutline,
+    Moon,
     SunnyOutline,
     PersonOutline,
     LogOutOutline,
@@ -26,7 +29,7 @@ import {
     Home,
     Person,
     AddCircleOutline,
-    
+
 } from '@vicons/ionicons5'
 
 
@@ -46,9 +49,9 @@ const ionicons5 = {
     AddCircleOutline
 }
 
-const antd = { 
-    MessageOutlined, 
-    ShoppingCartOutlined, 
+const antd = {
+    MessageOutlined,
+    ShoppingCartOutlined,
     AccountBookOutlined,
     FileExcelFilled,
     FileExcelOutlined,
@@ -59,7 +62,9 @@ const antd = {
     FieldTimeOutlined,
     TableOutlined,
     EditFilled,
-    CloudUploadOutlined
+    CloudUploadOutlined,
+    StarOutlined,
+    DragOutlined
 }
 
 export const icon = {

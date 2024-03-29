@@ -7,13 +7,15 @@ export enum PageEnum {
     BASE_HOME = '/home',
     BASE_HOME_NAME = 'Home',
 
-    // 办公Office -> excel
+    // 办公Office -> excel / table
     OFFICE = '/office',
     OFFICE_NAME = 'Office',
     OFFICE_EXPORT_EXCEL = '/office/exportExcel',
     OFFICE_EXPORT_EXCEL_NAME = 'Export-Excel',
     OFFICE_UPLOAD_EXCEL = '/office/uploadExcel',
     OFFICE_UPLOAD_EXCEL_NAME = 'Upload-Excel',
+    TABLE_DRAG = '/office/dragTable',
+    TABLE_DRAG_NAME = 'DRAG-TABLE',
 
     //重定向
     REDIRECT = '/redirect',

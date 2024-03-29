@@ -15,7 +15,7 @@ const setCollapsed = (value: boolean) => {
 const route = useRoute()
 const menuValue = computed(() => route.name)
 const { Home } = icon.ionicons5
-const { ProfileFilled,FileExcelFilled,FileExcelOutlined } = icon.antd
+const { ProfileFilled,FileExcelFilled,FileExcelOutlined,TableOutlined } = icon.antd
 const menuOptions = menuOptionsInit()
 
 function menuOptionsInit() {
@@ -62,6 +62,19 @@ function menuOptionsInit() {
                     ),
                     key: PageEnum.OFFICE_UPLOAD_EXCEL_NAME,
                     icon: renderIcon(FileExcelOutlined)
+                },
+                {
+                    label: () => h(
+                        RouterLink, {
+                        to: {
+                            name: PageEnum.TABLE_DRAG_NAME
+                        }
+                    }, {
+                        default: () => t('global.page_drag_table')
+                    }
+                    ),
+                    key: PageEnum.TABLE_DRAG_NAME,
+                    icon: renderIcon(TableOutlined)
                 }
             ]
         }

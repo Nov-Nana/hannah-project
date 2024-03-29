@@ -91,11 +91,12 @@ export const resize = (chart: any) => {
     const observer = new ResizeObserver(() => {
         chart.resize();
     });
-    let myEcharts = document.getElementById('myEcharts')
-    if (myEcharts) {
-        observer.observe(myEcharts);
+    let barChart = document.getElementById('barChart')
+
+    if (barChart) {
+        observer.observe(barChart);
     } else {
-        console.error('找不到 myEcharts')
+        console.error('找不到 barChart')
     }
 }
 

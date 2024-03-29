@@ -14,7 +14,7 @@ export const HomeRoute: RouteRecordRaw = {
 export const LoginRoute: RouteRecordRaw = {
     path: PageEnum.BASE_LOGIN,
     name: PageEnum.BASE_LOGIN_NAME,
-    component: ()=>import('@/views/login/index.vue'),
+    component: () => import('@/views/login/index.vue'),
     meta: {
         title: 'Login',
         activeMenuName: 'Login'
@@ -25,7 +25,7 @@ export const OfficeRoute: RouteRecordRaw = {
     path: PageEnum.OFFICE,
     name: PageEnum.OFFICE_NAME,
     redirect: PageEnum.OFFICE_EXPORT_EXCEL,
-    component: ()=>import('@/views/office/index.vue'),
+    component: () => import('@/views/office/index.vue'),
     meta: {
         title: 'Office',
         activeMenuName: 'Office'
@@ -39,16 +39,24 @@ export const OfficeRoute: RouteRecordRaw = {
                 title: 'ExportExcel',
                 activeMenuName: 'Office'
             }
-        },{
+        }, {
             path: PageEnum.OFFICE_UPLOAD_EXCEL,
             name: PageEnum.OFFICE_UPLOAD_EXCEL_NAME,
-            component: ()=> import('@/views/office/UploadExcel.vue'),
+            component: () => import('@/views/office/UploadExcel.vue'),
             meta: {
                 title: 'UploadExcel',
+                activeMenuName: 'Office'
+            }
+        }, {
+            path: PageEnum.TABLE_DRAG,
+            name: PageEnum.TABLE_DRAG_NAME,
+            component: () => import('@/views/office/DraggableList.vue'),
+            meta: {
+                title: 'DraggableList',
                 activeMenuName: 'Office'
             }
         }
     ]
 
-    
+
 }
