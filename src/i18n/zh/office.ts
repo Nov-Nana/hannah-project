@@ -15,9 +15,11 @@ export default {
     status: '状态',
     drag: '拖拽',
 
-    add_table_header: '添加表格头部',
+    edit_table_header: '修改表格头部',
     add_table_data: '添加数据',
     edit_table_data: '编辑数据',
+    add: '添加',
+    confirm: '确定',
 
     table: '表格',
     table_drag: '拖拽表格',

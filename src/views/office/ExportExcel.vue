@@ -54,14 +54,14 @@ const pagination = ref({
     pageSize: 5
 })
 
-
+// 导出excel
 const handleDownload = (select?: boolean) => {
     const workbook = new ExcelJS.Workbook()
     workbook.creator = 'Hannah';
     workbook.created = new Date(1985, 8, 30);
     workbook.modified = new Date();
     const sheet1 = workbook.addWorksheet('sheet1')
-    const headers = Object.keys(data[0])
+    const headers = cols.value.map((item: any) => item.title)
     sheet1.addRow(headers)
     if (select) {
         checkedRowKeysRef.value.forEach((item: any) => {
@@ -94,12 +94,13 @@ function handleButtonClick(name: string) {
 function getModalTitle(name: string) {
     switch (name) {
         case 'AddTableHeader':
-            return t('office.add_table_header')
+            return t('office.edit_table_header')
         case 'AddTableData':
             return t('office.add_table_data')
     }
 }
 function updateCols(value: any) {
+    modalShow.value = false
     cols.value = value
 }
 function addData(form: any) {
@@ -115,7 +116,6 @@ const xRef = ref(0)
 const yRef = ref(0)
 const editModalShow = ref(false)
 const selectRow = ref() // { "no": "1", "title": "Hello", "length": "3:21" }
-// const editInfo = ref()
 const options: DropdownOption[] = [
     {
         label: '编辑',
@@ -170,13 +170,15 @@ const colsSelect = computed(() => {
         ...cols.value
     ]
 })
-const checkedRowKeysRef = ref<DataTableRowKey[]>([])
+let checkedRowKeysRef = ref<DataTableRowKey[]>([])
 function handleCheck(rowKeys: DataTableRowKey[]) {
+    let currentChecked: DataTableRowKey[] = []
     data.forEach((item: any) => {
         if (rowKeys.includes(item.title)) {
-            checkedRowKeysRef.value.push(item)
+            currentChecked.push(item)
         }
     })
+    checkedRowKeysRef.value = currentChecked
     
 }
 function handleSelectDownload() {
@@ -197,7 +199,7 @@ function handleSelectDownload() {
                         <n-icon size="20" style="margin-right: 5px">
                             <TableOutlined></TableOutlined>
                         </n-icon>
-                        {{ t('office.add_table_header') }}
+                        {{ t('office.edit_table_header') }}
                     </n-button>
                 </n-grid-item>
                 <n-grid-item :span="1">

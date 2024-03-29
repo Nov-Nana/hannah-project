@@ -1,6 +1,9 @@
 <script setup lang='ts'>
 import { ref, watch, onMounted } from 'vue';
+import { icon } from '@/plugins';
 
+const t = window['$t']
+const { AddCircleOutline } = icon.ionicons5
 
 const props = defineProps(['data'])
 const emits = defineEmits(['update'])
@@ -12,9 +15,6 @@ onMounted(() => {
 watch(() => props.data, (newVal) => {
     dataRef.value = newVal
 })
-watch(dataRef, (newVal) => {
-    emits('update', newVal)
-})
 function onCreate() {
     return {
         key: '',
@@ -24,13 +24,24 @@ function onCreate() {
         }
     }
 }
+function add() {
+    window['$dialog'].success({
+        title: t('office.edit_table_header'),
+        positiveText: '确定',
+        negativeText: '不确定',
+        maskClosable: false,
+        onPositiveClick: () => {
+            emits('update', dataRef.value)
+        },
+    })
+}
 
 </script>
 <template>
     <n-dynamic-input v-model:value="dataRef" :on-create="onCreate">
-        <template #create-button-default>
+        <!-- <template #create-button-default>
             请添加表头
-        </template>
+        </template> -->
         <template #default="{ value }">
             <div style="display: flex; align-items: center; width: 100%">
                 <n-input v-model:value="value.key" type="text" style="margin: 0 10px" />
@@ -39,6 +50,17 @@ function onCreate() {
             </div>
         </template>
     </n-dynamic-input>
-    <pre>{{ JSON.stringify(dataRef?.value, null, 2),dataRef }}</pre>
+    <n-button class="button" strong secondary type="primary" size="small" round @click="add">
+        <n-icon size="20" style="margin-right: 5px">
+            <AddCircleOutline></AddCircleOutline>
+        </n-icon>
+        {{ t('office.confirm') }}
+    </n-button>
+    <pre>{{ JSON.stringify(dataRef?.value, null, 2), dataRef }}</pre>
 </template>
-<style lang='scss' scoped></style>
+<style lang='scss' scoped>
+.button{
+    margin: 20px 10px;
+    float: right;
+}
+</style>

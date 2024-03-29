@@ -15,9 +15,11 @@ export default {
     status: 'Status',
     drag: 'Drag',
 
-    add_table_header: 'Add Table Header',
+    edit_table_header: 'Edit Table Header',
     add_table_data: 'Add Table Data',
     edit_table_data: 'Edit Table Data',
+    add: 'Add',
+    confirm: 'Confirm',
 
     table: 'Table',
     table_drag: 'Drag Table',
