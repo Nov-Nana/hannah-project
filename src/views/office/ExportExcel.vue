@@ -80,6 +80,7 @@ const handleDownload = (select?: boolean) => {
         saveAs(file, "ExcelJS.xlsx");
     })
 }
+
 /**
  * 处理添加表头和添加数据
  */
@@ -130,7 +131,7 @@ function handleSelect(key: string) {
     showDropdownRef.value = false
     if (key === 'edit') {
         editModalShow.value = true
-    }else if(key === 'delete'){
+    } else if (key === 'delete') {
         const index = data.findIndex((item: any) => item.no === selectRow.value.no)
         data.splice(index, 1)
     }
@@ -179,11 +180,33 @@ function handleCheck(rowKeys: DataTableRowKey[]) {
         }
     })
     checkedRowKeysRef.value = currentChecked
-    
+
 }
 function handleSelectDownload() {
-    if(checkedRowKeysRef.value.length === 0) return
-    handleDownload(true)
+    if (checkedRowKeysRef.value.length === 0) return
+    window['$dialog'].success({
+        title: t('office.export_selected'),
+        positiveText: '确定',
+        negativeText: '不确定',
+        maskClosable: false,
+        onPositiveClick: () => {
+            handleDownload(true)
+        },
+    })
+    
+}
+
+// 全部导出
+function handleAllDownload(){
+    window['$dialog'].success({
+        title: t('office.export_all'),
+        positiveText: '确定',
+        negativeText: '不确定',
+        maskClosable: false,
+        onPositiveClick: () => {
+            handleDownload(false)
+        },
+    })
 }
 
 
@@ -191,44 +214,32 @@ function handleSelectDownload() {
 <template>
     <div class="export-excel-container">
         <!-- 菜单 -->
-        <div class="header">
-            <n-grid :x-gap="12" :y-gap="12" cols="2 s:2 m:4 l:4 xl:4 2xl:4" responsive="screen">
-                <n-grid-item :span="1">
-                    <n-button strong secondary type="primary" size="small" round
-                        @click="handleButtonClick('AddTableHeader')">
-                        <n-icon size="20" style="margin-right: 5px">
-                            <TableOutlined></TableOutlined>
-                        </n-icon>
-                        {{ t('office.edit_table_header') }}
-                    </n-button>
-                </n-grid-item>
-                <n-grid-item :span="1">
-                    <n-button strong secondary type="primary" size="small" round
-                        @click="handleButtonClick('AddTableData')">
-                        <n-icon size="20" style="margin-right: 5px">
-                            <AddCircleOutline></AddCircleOutline>
-                        </n-icon>
-                        {{ t('office.add_table_data') }}
-                    </n-button>
-                </n-grid-item>
-                <n-grid-item :span="1">
-                    <n-button strong secondary type="primary" size="small" round @click="handleSelectDownload">
-                        <n-icon size="20" style="margin-right: 5px">
-                            <FileExcelTwotone></FileExcelTwotone>
-                        </n-icon>
-                        {{ t('global.select_excel') }}
-                    </n-button>
-                </n-grid-item>
-                <n-grid-item :span="1">
-                    <n-button strong secondary type="primary" size="small" round @click="handleDownload(false)">
-                        <n-icon size="20" style="margin-right: 5px">
-                            <FileExcelFilled></FileExcelFilled>
-                        </n-icon>
-                        {{ t('global.export_excel') }}
-                    </n-button>
-                </n-grid-item>
-            </n-grid>
-        </div>
+        <n-flex class="menu">
+            <n-button strong secondary type="primary" size="small" round @click="handleButtonClick('AddTableHeader')">
+                <n-icon size="20" style="margin-right: 5px">
+                    <TableOutlined></TableOutlined>
+                </n-icon>
+                {{ t('office.edit_table_header') }}
+            </n-button>
+            <n-button strong secondary type="primary" size="small" round @click="handleButtonClick('AddTableData')">
+                <n-icon size="20" style="margin-right: 5px">
+                    <AddCircleOutline></AddCircleOutline>
+                </n-icon>
+                {{ t('office.add_table_data') }}
+            </n-button>
+            <n-button strong secondary type="primary" size="small" round @click="handleSelectDownload">
+                <n-icon size="20" style="margin-right: 5px">
+                    <FileExcelTwotone></FileExcelTwotone>
+                </n-icon>
+                {{ t('office.export_selected') }}
+            </n-button>
+            <n-button strong secondary type="primary" size="small" round @click="handleAllDownload">
+                <n-icon size="20" style="margin-right: 5px">
+                    <FileExcelFilled></FileExcelFilled>
+                </n-icon>
+                {{ t('office.export_all') }}
+            </n-button>
+        </n-flex>
         <!-- 表格 -->
         <n-data-table :columns="colsSelect" :data="data" :pagination="pagination" :row-key="(row: RowData) => row.title"
             :row-props="rowProps" @update:checked-row-keys="handleCheck" />
@@ -237,7 +248,7 @@ function handleSelectDownload() {
         <!-- 模拟框 -->
         <n-modal v-model:show="modalShow" :mask-closable="false">
             <div class="get-modal-wrapper" v-if="component !== ''">
-                <n-flex justify="space-between" class="header">
+                <n-flex justify="space-between">
                     <span>{{ getModalTitle(component) }}</span>
                     <n-icon size="20" style="cursor: pointer" @click="modalShow = false">
                         <CloseOutline></CloseOutline>
@@ -280,8 +291,6 @@ function handleSelectDownload() {
                             {{ t('global.cancel') }}
                         </n-button>
                     </n-flex>
-
-
                 </n-scrollbar>
             </div>
         </n-modal>
@@ -289,11 +298,9 @@ function handleSelectDownload() {
 </template>
 <style lang='scss' scoped>
 .export-excel-container {
-    width: 90%;
-    margin: 0 auto;
-    overflow: hidden;
-
-    .header {
+    width: 100%;
+    padding: 10px;
+    .menu{
         margin-bottom: 10px;
     }
 }
@@ -310,9 +317,5 @@ function handleSelectDownload() {
     border-radius: 15px;
     overflow: hidden;
     left: 5%;
-
-    .header {
-        font-size: 1.2rem;
-    }
 }
 </style>

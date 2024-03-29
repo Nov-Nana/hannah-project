@@ -1,10 +1,7 @@
 <script setup lang='ts'>
 import { ref, watch, onMounted } from 'vue';
-import { icon } from '@/plugins';
 
 const t = window['$t']
-const { AddCircleOutline } = icon.ionicons5
-
 const props = defineProps(['data'])
 const emits = defineEmits(['update'])
 
@@ -51,10 +48,7 @@ function add() {
         </template>
     </n-dynamic-input>
     <n-button class="button" strong secondary type="primary" size="small" round @click="add">
-        <n-icon size="20" style="margin-right: 5px">
-            <AddCircleOutline></AddCircleOutline>
-        </n-icon>
-        {{ t('office.confirm') }}
+        {{ t('global.confirm') }}
     </n-button>
     <pre>{{ JSON.stringify(dataRef?.value, null, 2), dataRef }}</pre>
 </template>

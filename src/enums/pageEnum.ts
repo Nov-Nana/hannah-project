@@ -12,10 +12,6 @@ export enum PageEnum {
     OFFICE_NAME = 'Office',
     OFFICE_EXPORT_EXCEL = '/office/exportExcel',
     OFFICE_EXPORT_EXCEL_NAME = 'Export-Excel',
-    OFFICE_MERGE_HEADER_EXCLE = '/office/mergeHeaderExcle',
-    OFFICE_MERGE_HEADER_EXCLE_NAME = 'Merge-Header-Excle',
-    OFFICE_SELECT_EXCEL = '/office/selectExcel',
-    OFFICE_SELECT_EXCEL_NAME = 'Select-Excel',
     OFFICE_UPLOAD_EXCEL = '/office/uploadExcel',
     OFFICE_UPLOAD_EXCEL_NAME = 'Upload-Excel',
 

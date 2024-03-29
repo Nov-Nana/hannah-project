@@ -15,7 +15,7 @@ const setCollapsed = (value: boolean) => {
 const route = useRoute()
 const menuValue = computed(() => route.name)
 const { Home } = icon.ionicons5
-const { ProfileFilled,FileExcelFilled } = icon.antd
+const { ProfileFilled,FileExcelFilled,FileExcelOutlined } = icon.antd
 const menuOptions = menuOptionsInit()
 
 function menuOptionsInit() {
@@ -26,14 +26,14 @@ function menuOptionsInit() {
                 return h(
                     RouterLink,
                     { to: { name: PageEnum.BASE_HOME_NAME } },
-                    { default: () => t('global.home') }
+                    { default: () => t('global.page_home') }
                 )
             },
             key: PageEnum.BASE_HOME_NAME,
             icon: renderIcon(Home)
         },
         {
-            label: () => h('span', null, { default: () => t('global.office') }),
+            label: () => h('span', null, { default: () => t('global.page_office') }),
             key: PageEnum.OFFICE_NAME,
             icon: renderIcon(ProfileFilled),
             children: [
@@ -44,11 +44,24 @@ function menuOptionsInit() {
                             name: PageEnum.OFFICE_EXPORT_EXCEL_NAME
                         }
                     }, {
-                        default: () => t('global.export_excel')
+                        default: () => t('global.page_export_excel')
                     }
                     ),
                     key: PageEnum.OFFICE_EXPORT_EXCEL_NAME,
                     icon: renderIcon(FileExcelFilled)
+                },
+                {
+                    label: () => h(
+                        RouterLink, {
+                        to: {
+                            name: PageEnum.OFFICE_UPLOAD_EXCEL_NAME
+                        }
+                    }, {
+                        default: () => t('global.page_upload_excel')
+                    }
+                    ),
+                    key: PageEnum.OFFICE_UPLOAD_EXCEL_NAME,
+                    icon: renderIcon(FileExcelOutlined)
                 }
             ]
         }

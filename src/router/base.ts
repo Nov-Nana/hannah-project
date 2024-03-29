@@ -39,6 +39,14 @@ export const OfficeRoute: RouteRecordRaw = {
                 title: 'ExportExcel',
                 activeMenuName: 'Office'
             }
+        },{
+            path: PageEnum.OFFICE_UPLOAD_EXCEL,
+            name: PageEnum.OFFICE_UPLOAD_EXCEL_NAME,
+            component: ()=> import('@/views/office/UploadExcel.vue'),
+            meta: {
+                title: 'UploadExcel',
+                activeMenuName: 'Office'
+            }
         }
     ]
 

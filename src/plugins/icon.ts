@@ -10,7 +10,8 @@ import {
     FileExclamationOutlined,
     FieldTimeOutlined,
     TableOutlined,
-    EditFilled
+    EditFilled,
+    CloudUploadOutlined
 } from '@vicons/antd'
 import {
     CloseOutline,
@@ -57,7 +58,8 @@ const antd = {
     ProfileFilled,
     FieldTimeOutlined,
     TableOutlined,
-    EditFilled
+    EditFilled,
+    CloudUploadOutlined
 }
 
 export const icon = {

@@ -37,7 +37,8 @@ import {
     NRadio,
     NSelect,
     NUpload,
-    NDynamicInput
+    NDynamicInput,
+    NUploadDragger
 
 } from 'naive-ui'
 
@@ -79,7 +80,8 @@ const naive = create({
         NRadio,
         NSelect,
         NUpload,
-        NDynamicInput
+        NDynamicInput,
+        NUploadDragger
     ]
 })
 

@@ -3,6 +3,6 @@ export default {
     user_placeholder: 'Please enter your username',
     pwd_placeholder: 'Please enter your password',
     auto_login: 'Auto login',
-    login_in: 'LOGIN',
-    logout: 'LOG OUT',
+    sign_in: 'Sign in',
+    sign_out: 'Sign out',
 }

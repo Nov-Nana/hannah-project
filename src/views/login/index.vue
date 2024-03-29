@@ -141,7 +141,7 @@ onUpdated(() => {
                         </n-form-item>
                         <n-form-item>
                             <n-button type="primary" @click="handleSubmit" size="large" :loading="loading" block>
-                                {{ t('login.login_in') }}</n-button>
+                                {{ t('login.sign_in') }}</n-button>
                         </n-form-item>
                     </n-form>
                 </div>

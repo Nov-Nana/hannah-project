@@ -2,17 +2,26 @@ import login from './login'
 import office from './office'
 
 const global = {
-    home: 'Home',
-    login: 'Login',
-    office: 'Office',
-    export_excel: 'Export Excel',
-    merge_header_excel: 'Merge Header Excel',
-    select_excel: 'Select Excel',
-    upload_excel: 'Upload Excel',
+    page_home: 'Home',
+    page_login: 'Login',
+    page_office: 'Office',
+    page_export_excel: 'Export Excel',
+    page_upload_excel: 'Upload Excel',
 
     cancel: 'Cancel',
+    add:'Add',
+    edit:'Edit',
+    delete:'Delete',
+    save:'Save',
+    submit:'Submit',
+    confirm:'Confirm',
+    search:'Search',
+    reset:'Reset',
+    preview: 'Preview',
+    upload: 'Upload',
 
-    color_theme_title: 'Choose theme color',
+
+    color_theme_title: 'Choose color',
     color_theme_footer: 'The Chinese color list comes from',
 }
 

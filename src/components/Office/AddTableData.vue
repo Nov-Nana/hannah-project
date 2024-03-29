@@ -1,9 +1,7 @@
 <script setup lang='ts'>
 import { ref, toRefs } from 'vue';
-import { icon } from '@/plugins';
 
 const t = window['$t']
-const { AddCircleOutline } = icon.ionicons5
 const props = defineProps(['columns'])
 const { columns } = toRefs(props)
 
@@ -30,10 +28,7 @@ const addData = () => {
             <n-input v-model:value="formInfo[item.key]" />
         </n-form-item>
         <n-button class="button" strong secondary type="primary" size="small" round @click="addData">
-            <n-icon size="20" style="margin-right: 5px">
-                <AddCircleOutline></AddCircleOutline>
-            </n-icon>
-            {{ t('office.confirm') }}
+            {{ t('global.confirm') }}
         </n-button>
     </n-form>
 </template>
