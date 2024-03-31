@@ -1,5 +1,6 @@
 import login from './login'
 import office from './office'
+import project from './project'
 
 const global = {
     page_home: '主页',
@@ -8,6 +9,8 @@ const global = {
     page_export_excel: '导出Excel',
     page_upload_excel: '上传Excel',
     page_drag_table: '拖拽表格',
+    page_project: '项目',
+    page_all_project: '全部项目',
 
     cancel: '取消',
     add:'添加',
@@ -20,6 +23,9 @@ const global = {
     reset:'重置',
     preview: '预览',
     upload: '上传',
+    more: '更多',
+    unpublish: '取消发布',
+    publish: '发布',
 
 
     color_theme_title: '选择主题色',
@@ -29,5 +35,6 @@ const global = {
 export default {
     global,
     login,
-    office
+    office,
+    project
 }

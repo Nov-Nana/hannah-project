@@ -60,3 +60,24 @@ export const OfficeRoute: RouteRecordRaw = {
 
 
 }
+
+export const projectRoute: RouteRecordRaw = {
+    path: PageEnum.PROJECT,
+    name: PageEnum.PROJECT_NAME,
+    component: () => import('@/views/project/index.vue'),
+    meta: {
+        title: 'Project',
+        activeMenuName: 'Project'
+    },
+    children: [
+        {
+            path: PageEnum.PROJECT_ALL,
+            name:PageEnum.PROJECT_ALL_NAME,
+            component:()=>import('@/views/project/items/index.vue'),
+            meta:{
+                title:'AllProject',
+                activeMenuName:'Project'
+            }
+        }
+    ]
+}

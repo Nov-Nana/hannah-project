@@ -15,7 +15,8 @@ const setCollapsed = (value: boolean) => {
 const route = useRoute()
 const menuValue = computed(() => route.name)
 const { Home } = icon.ionicons5
-const { ProfileFilled,FileExcelFilled,FileExcelOutlined,TableOutlined } = icon.antd
+const { ProfileFilled, FileExcelFilled, FileExcelOutlined, TableOutlined, ProjectFilled,
+    ProjectOutlined } = icon.antd
 const menuOptions = menuOptionsInit()
 
 function menuOptionsInit() {
@@ -76,6 +77,25 @@ function menuOptionsInit() {
                     key: PageEnum.TABLE_DRAG_NAME,
                     icon: renderIcon(TableOutlined)
                 }
+            ]
+        }, {
+            label: () => h( 'span',null,{ default: () => t('global.page_project') }),
+            key: PageEnum.PROJECT_NAME,
+            icon: renderIcon(ProjectFilled),
+            children: [
+                {
+                    label: () => h(
+                        RouterLink, {
+                        to: {
+                            name: PageEnum.PROJECT_ALL_NAME
+                        }
+                    }, {
+                        default: () => t('global.page_all_project')
+                    }
+                    ),
+                    key: PageEnum.PROJECT_ALL_NAME,
+                    icon: renderIcon(ProjectOutlined)
+                },
             ]
         }
 

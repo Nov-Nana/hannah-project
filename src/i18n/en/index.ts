@@ -1,5 +1,6 @@
 import login from './login'
 import office from './office'
+import project from './project'
 
 const global = {
     page_home: 'Home',
@@ -8,6 +9,8 @@ const global = {
     page_export_excel: 'Export Excel',
     page_upload_excel: 'Upload Excel',
     page_drag_table: 'Drag Table',
+    page_project: 'Project',
+    page_all_project: 'All Project',
 
     cancel: 'Cancel',
     add:'Add',
@@ -20,6 +23,9 @@ const global = {
     reset:'Reset',
     preview: 'Preview',
     upload: 'Upload',
+    more: 'More',
+    unpublish: 'Unpublish',
+    publish: 'Publish',
 
 
     color_theme_title: 'Choose color',
@@ -29,5 +35,6 @@ const global = {
 export default {
     global,
     login,
-    office
+    office,
+    project
 }

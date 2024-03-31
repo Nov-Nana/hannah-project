@@ -38,7 +38,11 @@ import {
     NSelect,
     NUpload,
     NDynamicInput,
-    NUploadDragger
+    NUploadDragger,
+    NIconWrapper,
+    NImage,
+    NBadge,
+    NTooltip
 
 } from 'naive-ui'
 
@@ -81,7 +85,11 @@ const naive = create({
         NSelect,
         NUpload,
         NDynamicInput,
-        NUploadDragger
+        NUploadDragger,
+        NIconWrapper,
+        NImage,
+        NBadge,
+        NTooltip
     ]
 })
 

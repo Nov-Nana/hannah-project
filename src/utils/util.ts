@@ -91,12 +91,12 @@ export const resize = (chart: any) => {
     const observer = new ResizeObserver(() => {
         chart.resize();
     });
-    let barChart = document.getElementById('barChart')
+    let baseChart = document.getElementById('baseChart')
 
-    if (barChart) {
-        observer.observe(barChart);
+    if (baseChart) {
+    chart && observer.observe(baseChart);
     } else {
-        console.error('找不到 barChart')
+        console.error('找不到 baseChart')
     }
 }
 
@@ -106,7 +106,7 @@ export const resize = (chart: any) => {
  * @param {string} cFormat
  * @returns {string | null}
  */
-export function parseTime(time: any, cFormat?:string) {
+export function parseTime(time: any, cFormat?: string) {
     if (arguments.length === 0 || !time) {
         return null
     }
@@ -140,7 +140,7 @@ export function parseTime(time: any, cFormat?:string) {
         s: date.getSeconds(),
         a: date.getDay()
     }
-    const time_str = format.replace(/{([ymdhisa])+}/g, (_, key: 'a' | 'y'| 'd' | 'h' | 'i' | 's' | 'm') => {
+    const time_str = format.replace(/{([ymdhisa])+}/g, (_, key: 'a' | 'y' | 'd' | 'h' | 'i' | 's' | 'm') => {
         const value = formatObj[key]
         // Note: getDay() returns 0 on Sunday
         if (key === 'a') { return ['日', '一', '二', '三', '四', '五', '六'][value] }

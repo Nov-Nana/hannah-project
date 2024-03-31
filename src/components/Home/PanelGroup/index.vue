@@ -42,7 +42,7 @@ const handleSetLineChartData = (type: string) => {
             </n-flex>
         </n-grid-item>
         <n-grid-item>
-            <n-flex justify="space-between" class="get-card-panel" @click="handleSetLineChartData('shoppings')">
+            <n-flex justify="space-between" class="get-card-panel" @click="handleSetLineChartData('purchases')">
                 <div class="card-panel-icon icon-money">
                     <n-icon>
                         <AccountBookOutlined></AccountBookOutlined>
@@ -55,7 +55,7 @@ const handleSetLineChartData = (type: string) => {
             </n-flex>
         </n-grid-item>
         <n-grid-item>
-            <n-flex justify="space-between" class="get-card-panel" @click="handleSetLineChartData('messages')">
+            <n-flex justify="space-between" class="get-card-panel" @click="handleSetLineChartData('shoppings')">
                 <div class="card-panel-icon icon-shopping">
                     <n-icon>
                         <ShoppingCartOutlined></ShoppingCartOutlined>

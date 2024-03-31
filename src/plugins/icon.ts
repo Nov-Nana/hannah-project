@@ -13,7 +13,13 @@ import {
     EditFilled,
     CloudUploadOutlined,
     StarOutlined,
-    DragOutlined
+    DragOutlined,
+    ProjectFilled,
+    ProjectOutlined,
+    ExpandAltOutlined,
+    CloseOutlined,
+    ToolOutlined,
+    EllipsisOutlined
 
 } from '@vicons/antd'
 import {
@@ -29,6 +35,9 @@ import {
     Home,
     Person,
     AddCircleOutline,
+    BrowsersOutline,
+    SendOutline,
+    Trash,
 
 } from '@vicons/ionicons5'
 
@@ -46,7 +55,10 @@ const ionicons5 = {
     HomeOutline,
     Home,
     Person,
-    AddCircleOutline
+    AddCircleOutline,
+    BrowsersOutline,
+    SendOutline,
+    Trash
 }
 
 const antd = {
@@ -64,7 +76,13 @@ const antd = {
     EditFilled,
     CloudUploadOutlined,
     StarOutlined,
-    DragOutlined
+    DragOutlined,
+    ProjectFilled,
+    ProjectOutlined,
+    ExpandAltOutlined,
+    CloseOutlined,
+    ToolOutlined,
+    EllipsisOutlined
 }
 
 export const icon = {

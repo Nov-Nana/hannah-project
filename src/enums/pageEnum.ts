@@ -17,6 +17,12 @@ export enum PageEnum {
     TABLE_DRAG = '/office/dragTable',
     TABLE_DRAG_NAME = 'DRAG-TABLE',
 
+    // 项目
+    PROJECT='/project',
+    PROJECT_NAME= 'Project',
+    PROJECT_ALL = '/project/all',
+    PROJECT_ALL_NAME = 'ALL-PROJECT',
+
     //重定向
     REDIRECT = '/redirect',
     REDIRECT_NAME = 'Redirect',
