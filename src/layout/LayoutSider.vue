@@ -14,7 +14,7 @@ const setCollapsed = (value: boolean) => {
 }
 const route = useRoute()
 const menuValue = computed(() => route.name)
-const { Home } = icon.ionicons5
+const { Home, Grid, LogoCss3 } = icon.ionicons5
 const { ProfileFilled, FileExcelFilled, FileExcelOutlined, TableOutlined, ProjectFilled,
     ProjectOutlined } = icon.antd
 const menuOptions = menuOptionsInit()
@@ -27,14 +27,14 @@ function menuOptionsInit() {
                 return h(
                     RouterLink,
                     { to: { name: PageEnum.BASE_HOME_NAME } },
-                    { default: () => t('global.page_home') }
+                    { default: () => t('page.home') }
                 )
             },
             key: PageEnum.BASE_HOME_NAME,
             icon: renderIcon(Home)
         },
         {
-            label: () => h('span', null, { default: () => t('global.page_office') }),
+            label: () => h('span', null, { default: () => t('page.office') }),
             key: PageEnum.OFFICE_NAME,
             icon: renderIcon(ProfileFilled),
             children: [
@@ -45,7 +45,7 @@ function menuOptionsInit() {
                             name: PageEnum.OFFICE_EXPORT_EXCEL_NAME
                         }
                     }, {
-                        default: () => t('global.page_export_excel')
+                        default: () => t('page.export_excel')
                     }
                     ),
                     key: PageEnum.OFFICE_EXPORT_EXCEL_NAME,
@@ -58,7 +58,7 @@ function menuOptionsInit() {
                             name: PageEnum.OFFICE_UPLOAD_EXCEL_NAME
                         }
                     }, {
-                        default: () => t('global.page_upload_excel')
+                        default: () => t('page.upload_excel')
                     }
                     ),
                     key: PageEnum.OFFICE_UPLOAD_EXCEL_NAME,
@@ -71,7 +71,7 @@ function menuOptionsInit() {
                             name: PageEnum.TABLE_DRAG_NAME
                         }
                     }, {
-                        default: () => t('global.page_drag_table')
+                        default: () => t('page.drag_table')
                     }
                     ),
                     key: PageEnum.TABLE_DRAG_NAME,
@@ -79,7 +79,7 @@ function menuOptionsInit() {
                 }
             ]
         }, {
-            label: () => h( 'span',null,{ default: () => t('global.page_project') }),
+            label: () => h('span', null, { default: () => t('page.project') }),
             key: PageEnum.PROJECT_NAME,
             icon: renderIcon(ProjectFilled),
             children: [
@@ -90,11 +90,30 @@ function menuOptionsInit() {
                             name: PageEnum.PROJECT_ALL_NAME
                         }
                     }, {
-                        default: () => t('global.page_all_project')
+                        default: () => t('page.all_project')
                     }
                     ),
                     key: PageEnum.PROJECT_ALL_NAME,
                     icon: renderIcon(ProjectOutlined)
+                },
+            ]
+        }, {
+            label: () => h('span', null, { default: () => t('page.other') }),
+            key: PageEnum.OTHER_NAME,
+            icon: renderIcon(Grid),
+            children: [
+                {
+                    label: () => h(
+                        RouterLink, {
+                        to: {
+                            name: PageEnum.OTHER_3DHOVEREFFECT_NAME
+                        }
+                    }, {
+                        default: () => t('page.hover_effect')
+                    }
+                    ),
+                    key: PageEnum.OTHER_3DHOVEREFFECT_NAME,
+                    icon: renderIcon(LogoCss3)
                 },
             ]
         }

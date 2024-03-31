@@ -42,7 +42,8 @@ import {
     NIconWrapper,
     NImage,
     NBadge,
-    NTooltip
+    NTooltip,
+    NPagination
 
 } from 'naive-ui'
 
@@ -89,7 +90,8 @@ const naive = create({
         NIconWrapper,
         NImage,
         NBadge,
-        NTooltip
+        NTooltip,
+        NPagination
     ]
 })
 

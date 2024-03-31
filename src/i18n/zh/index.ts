@@ -1,17 +1,9 @@
 import login from './login'
 import office from './office'
 import project from './project'
+import page from './page'
 
 const global = {
-    page_home: '主页',
-    page_login: '登录',
-    page_office: 'Office',
-    page_export_excel: '导出Excel',
-    page_upload_excel: '上传Excel',
-    page_drag_table: '拖拽表格',
-    page_project: '项目',
-    page_all_project: '全部项目',
-
     cancel: '取消',
     add:'添加',
     edit:'编辑',
@@ -36,5 +28,6 @@ export default {
     global,
     login,
     office,
-    project
+    project,
+    page
 }

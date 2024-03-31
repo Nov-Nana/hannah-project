@@ -1,5 +1,5 @@
 import { StorageEnum } from "@/enums/storageEnum"
-import { getLocalStorage,clearLocalStorage } from "."
+import { getLocalStorage, clearLocalStorage } from "."
 import { cryptoDecode } from "./crypto"
 import { router } from '@/router'
 import { PageEnum } from "@/enums/pageEnum"
@@ -74,15 +74,15 @@ export const routerByName = (pageName: string, isReplace?: boolean, windowOpen?:
  * @param query 参数
  * @returns 
  */
-export const routerByPath = (path: string, isReplace?: boolean, windowOpen?: boolean, query?: Array<string | number>) => {
+export const routerByPath = (path: string, query?: Array<string | number>, isReplace?: boolean, windowOpen?: boolean) => {
     let fullPath = ''
-    if (query?.length){
-        fullPath =  `${path}/${query.join('/')}`
+    if (query?.length) {
+        fullPath = `${path}/${query.join('/')}`
     }
-    if(windowOpen){
+    if (windowOpen) {
         return openNewWindow(fullPath)
     }
-    if(isReplace){
+    if (isReplace) {
         router.replace({ path: fullPath })
         return
     }
@@ -92,7 +92,7 @@ export const routerByPath = (path: string, isReplace?: boolean, windowOpen?: boo
 /**
  * 退出登录
  */
-export const logout = ()=>{
+export const logout = () => {
     clearLocalStorage(StorageEnum.STORAGE_USER_INFO)
     routerByName(PageEnum.BASE_LOGIN_NAME)
 }

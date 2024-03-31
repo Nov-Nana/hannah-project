@@ -61,7 +61,7 @@ export const OfficeRoute: RouteRecordRaw = {
 
 }
 
-export const projectRoute: RouteRecordRaw = {
+export const ProjectRoute: RouteRecordRaw = {
     path: PageEnum.PROJECT,
     name: PageEnum.PROJECT_NAME,
     component: () => import('@/views/project/index.vue'),
@@ -77,6 +77,27 @@ export const projectRoute: RouteRecordRaw = {
             meta:{
                 title:'AllProject',
                 activeMenuName:'Project'
+            }
+        }
+    ]
+}
+
+export const OtherRoute: RouteRecordRaw = {
+    path: PageEnum.OTHER,
+    name: PageEnum.OTHER_NAME,
+    component: () => import('@/views/other/index.vue'),
+    meta: {
+        title: 'Other',
+        activeMenuName: 'Other'
+    },
+    children: [
+        {
+            name: PageEnum.OTHER_3DHOVEREFFECT_NAME,
+            path: PageEnum.OTHER_3DHOVEREFFECT,
+            component: () => import('@/views/other/3DHoverEffect.vue'),
+            meta: {
+                title: '3DHoverEffect',
+                activeMenuName: 'Other'
             }
         }
     ]

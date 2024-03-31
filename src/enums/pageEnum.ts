@@ -23,6 +23,12 @@ export enum PageEnum {
     PROJECT_ALL = '/project/all',
     PROJECT_ALL_NAME = 'ALL-PROJECT',
 
+    // 其他
+    OTHER = '/other',
+    OTHER_NAME = 'Other',
+    OTHER_3DHOVEREFFECT = '/other/3DHoverEffect',
+    OTHER_3DHOVEREFFECT_NAME = '3D-Hover-Effect',
+
     //重定向
     REDIRECT = '/redirect',
     REDIRECT_NAME = 'Redirect',
@@ -33,4 +39,10 @@ export enum PageEnum {
     ERROR_PAGE_NAME_404 = 'ErrorPage404',
     ERROR_PAGE_NAME_500 = 'ErrorPage500',
 
+}
+
+export enum ChartEnum{
+    // 图表
+    CHART_HOME = '/chart/home/:id(.*)*',
+    CHART_HOME_NAME = 'Chart-Home',
 }

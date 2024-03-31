@@ -2,6 +2,7 @@ import { excludeParseEventKeyList, excludeParseEventValueList } from '@/enums/ev
 import { NIcon } from 'naive-ui'
 import { h } from 'vue'
 import ResizeObserver from 'resize-observer-polyfill';
+import screenfull from 'screenfull';
 
 /**
  * JSON 序列化，支持函数和 undefined
@@ -148,3 +149,20 @@ export function parseTime(time: any, cFormat?: string) {
     })
     return time_str
 }
+
+/**
+ * * 全屏操作函数
+ * @param isFullscreen
+ * @param isEnabled
+ * @returns
+ */
+export const handleScreenFull = (isFullscreen?: boolean) => {
+    // 是否是全屏
+    if (isFullscreen) return screenfull.isFullscreen
+  
+    if (screenfull.isEnabled) {
+      screenfull.toggle()
+      return true
+    }
+    window['$message'].warning('您的浏览器不支持全屏功能！')
+  }

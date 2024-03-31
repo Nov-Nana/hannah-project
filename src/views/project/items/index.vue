@@ -11,6 +11,6 @@ import { ProjectItemsList } from './components'
 
 <style lang="scss" scoped>
 @include get(project-items){
-    padding: 20px;
+    padding: 30px 20px;
 }
 </style>

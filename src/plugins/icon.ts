@@ -19,7 +19,10 @@ import {
     ExpandAltOutlined,
     CloseOutlined,
     ToolOutlined,
-    EllipsisOutlined
+    EllipsisOutlined,
+    LineOutlined,
+    FullscreenOutlined,
+    FullscreenExitOutlined
 
 } from '@vicons/antd'
 import {
@@ -38,6 +41,8 @@ import {
     BrowsersOutline,
     SendOutline,
     Trash,
+    Grid,
+    LogoCss3
 
 } from '@vicons/ionicons5'
 
@@ -58,7 +63,9 @@ const ionicons5 = {
     AddCircleOutline,
     BrowsersOutline,
     SendOutline,
-    Trash
+    Trash,
+    Grid,
+    LogoCss3
 }
 
 const antd = {
@@ -82,7 +89,10 @@ const antd = {
     ExpandAltOutlined,
     CloseOutlined,
     ToolOutlined,
-    EllipsisOutlined
+    EllipsisOutlined,
+    LineOutlined,
+    FullscreenOutlined,
+    FullscreenExitOutlined
 }
 
 export const icon = {
