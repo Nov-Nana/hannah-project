@@ -43,8 +43,19 @@ import {
     NImage,
     NBadge,
     NTooltip,
-    NPagination
-
+    NPagination,
+    NCollapse,
+    NCollapseItem,
+    NPopover,
+    NInputGroup,
+    NEllipsis,
+    NEmpty,
+    NButtonGroup,
+    NSkeleton,
+    NTab,
+    NTabPane,
+    NTabs
+ 
 } from 'naive-ui'
 
 const naive = create({
@@ -91,7 +102,18 @@ const naive = create({
         NImage,
         NBadge,
         NTooltip,
-        NPagination
+        NPagination,
+        NCollapse,
+        NCollapseItem,
+        NPopover,
+        NInputGroup,
+        NEllipsis,
+        NEmpty,
+        NButtonGroup,
+        NSkeleton,
+        NTab,
+        NTabPane,
+        NTabs
     ]
 })
 

@@ -1,7 +1,7 @@
 <script setup lang='ts'>
 import { icon } from '@/plugins';
 import ItemJPG from '@/assets/item.jpg'
-import { reactive, ref } from 'vue';
+import { reactive, ref, watch } from 'vue';
 import { renderIcon } from '@/utils';
 
 const t = window['$t']
@@ -32,9 +32,9 @@ const selectOptions = ref([
         icon: renderIcon(BrowsersOutline)
     },
     {
-        label: props.cardData?.state
-            ? t('global.publish')
-            : t('global.unpublish'),
+        label: props.cardData?.state === 1
+            ? t('project.unrelease')
+            : t('project.release'),
         key: 'send',
         icon: renderIcon(SendOutline)
     },
@@ -44,9 +44,30 @@ const selectOptions = ref([
         icon: renderIcon(Trash)
     }
 ])
-const emits = defineEmits(['edit', 'delete', 'expand'])
+function setSelectOptions() {
+    selectOptions.value = [
+        {
+            label: t('global.preview'),
+            key: 'preview',
+            icon: renderIcon(BrowsersOutline)
+        },
+        {
+            label: props.cardData?.state === 1
+                ? t('project.unrelease')
+                : t('project.release'),
+            key: 'send',
+            icon: renderIcon(SendOutline)
+        },
+        {
+            label: t('global.delete'),
+            key: 'delete',
+            icon: renderIcon(Trash)
+        }
+    ]
+}
 
-function handleSelect(select: string) {
+const emits = defineEmits(['edit', 'delete', 'expand', 'send'])
+function handleClick(select: string) {
     switch (select) {
         case 'edit':
             emits('edit', props.cardData)
@@ -54,18 +75,19 @@ function handleSelect(select: string) {
         case 'delete':
             emits('delete', props.cardData)
             break;
-    }
-}
-function handleClick(type: string) {
-    switch (type) {
+        case 'send':
+            emits('send', props.cardData.id)
+            break;
         case 'expand':
             emits('expand', props.cardData)
             break;
-        case 'delete':
-            emits('delete', props.cardData)
-            break;
     }
 }
+watch(() => props.cardData, () => {
+    setTimeout(() => {
+        setSelectOptions()
+    }, 300)
+}, { deep: true })
 </script>
 <template>
     <div v-if="cardData" vertical class="get-items-list-card">
@@ -91,7 +113,7 @@ function handleClick(type: string) {
                 <template v-for="item in btnList" :key="item.key">
                     <template v-if="item.key === 'select'">
                         <n-dropdown trigger="hover" placement="bottom" :options="selectOptions" :show-arrow="true"
-                            @select="handleSelect">
+                            @select="handleClick">
                             <n-button size="small">
                                 <template #icon>
                                     <component :is="item.icon"></component>
@@ -101,7 +123,7 @@ function handleClick(type: string) {
                     </template>
                     <n-tooltip v-else placement="bottom" trigger="hover">
                         <template #trigger>
-                            <n-button size="small" @click="handleSelect(item.key)">
+                            <n-button size="small" @click="handleClick(item.key)">
                                 <template #icon>
                                     <component :is="item.icon"></component>
                                 </template>

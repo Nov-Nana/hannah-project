@@ -1,8 +1,9 @@
 import { excludeParseEventKeyList, excludeParseEventValueList } from '@/enums/eventEnum'
 import { NIcon } from 'naive-ui'
-import { h } from 'vue'
+import { AsyncComponentLoader, defineAsyncComponent, h } from 'vue'
 import ResizeObserver from 'resize-observer-polyfill';
 import screenfull from 'screenfull';
+import Loading from '@/components/ChartHome/Loading.vue'
 
 /**
  * JSON 序列化，支持函数和 undefined
@@ -95,7 +96,7 @@ export const resize = (chart: any) => {
     let baseChart = document.getElementById('baseChart')
 
     if (baseChart) {
-    chart && observer.observe(baseChart);
+        chart && observer.observe(baseChart);
     } else {
         console.error('找不到 baseChart')
     }
@@ -159,10 +160,61 @@ export function parseTime(time: any, cFormat?: string) {
 export const handleScreenFull = (isFullscreen?: boolean) => {
     // 是否是全屏
     if (isFullscreen) return screenfull.isFullscreen
-  
+
     if (screenfull.isEnabled) {
-      screenfull.toggle()
-      return true
+        screenfull.toggle()
+        return true
     }
     window['$message'].warning('您的浏览器不支持全屏功能！')
-  }
+}
+
+/**
+ * * 生成一个不重复的ID
+ * @param { Number } randomLength
+ */
+export const getUUID = (randomLength = 10) => {
+    return Number(Math.random().toString().substring(2, randomLength) + Date.now()).toString(36)
+}
+
+// 生成当前时间格式为 yyyy-mm-dd hh:mm:ss
+export const getNowFormatDate = () => {
+    const date = new Date()
+    const seperator1 = '-'
+    const seperator2 = ':'
+    let month: string | number = date.getMonth() + 1
+    let strDate: string | number = date.getDate()
+    if (month >= 1 && month <= 9) {
+        month = '0' + month
+    }
+    if (strDate >= 0 && strDate <= 9) {
+        strDate = '0' + strDate
+    }
+    const currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate
+        + ' ' + date.getHours() + seperator2 + date.getMinutes()
+        + seperator2 + date.getSeconds()
+    return currentdate
+}
+
+/**
+ * 加载异步组件
+ * @param loader 异步组件加载
+ * @returns 
+ */
+export const loadAsyncComponent = (loader: AsyncComponentLoader<any>) =>
+    defineAsyncComponent({
+        loader,
+        loadingComponent: Loading,
+        delay: 20,
+    })
+
+/**
+ * 从url中获取获取参数
+ * @returns id
+ */
+export const getRouteParams = () => {
+    return document.location.hash.split('?')[0].split('/').pop() || ''
+}
+
+export const setTitle = (title?: string) =>{
+    title && (document.title = title)
+}

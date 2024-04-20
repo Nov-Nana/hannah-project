@@ -17,4 +17,4 @@ watch(() => props.option, (newVal) => {
 <template>
     <div ref="elEcharts" id="baseChart" :style="{ width: '100%', height: '300px' }"></div>
 </template>
-<style lang='scss' scoped></style>
+<style lang='scss' scoped></style>../../../../hooks/useEcharts.hook

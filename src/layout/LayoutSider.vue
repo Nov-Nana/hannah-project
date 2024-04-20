@@ -33,6 +33,17 @@ function menuOptionsInit() {
             key: PageEnum.BASE_HOME_NAME,
             icon: renderIcon(Home)
         },
+        // {
+        //     label: () => {
+        //         return h(
+        //             RouterLink,
+        //             { to: { name: PageEnum.BASE_CONFIG_NAME } },
+        //             { default: () => t('page.config_router') }
+        //         )
+        //     },
+        //     key: PageEnum.BASE_CONFIG_NAME,
+        //     icon: renderIcon(Construct)
+        // },
         {
             label: () => h('span', null, { default: () => t('page.office') }),
             key: PageEnum.OFFICE_NAME,

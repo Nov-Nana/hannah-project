@@ -2,17 +2,23 @@
 import { ProjectItemsCard, ProjectItemsModalCard } from './index'
 import { useDataListInit } from '@/hooks/useData.hook'
 import { useModalDataInit } from '@/hooks/useModalData.hook'
-const { splitList,handleDelete, page, pageSize, pageSizes, itemCount, updatePage,
-    updatePageSize } = useDataListInit()
+const { splitList, handleDelete, page, pageSize, pageSizes, itemCount, updatePage,
+    updatePageSize, handleSend, handleCreate } = useDataListInit()
 
 const { modalData, modalShow, closeModal, openModal, editModal } = useModalDataInit()
+const t = window['$t']
+
 </script>
 
 <template>
     <div class="get-items-list">
+        <div class="create-item">
+            <n-button type="primary" @click="handleCreate">{{ t('project.create') }}</n-button>
+        </div>
         <n-grid :x-gap="24" :y-gap="24" cols="1 s:2 m:3 l:4 xl:4 xxl:4" responsive="screen">
             <n-grid-item v-for="(item) in splitList" :key="item.id">
-                <ProjectItemsCard :cardData="item" @expand="openModal" @delete="handleDelete(item.id)" @eidit="editModal"></ProjectItemsCard>
+                <ProjectItemsCard :cardData="item" @expand="openModal" @delete="handleDelete(item.id)" @edit="editModal"
+                    @send="handleSend"></ProjectItemsCard>
             </n-grid-item>
         </n-grid>
         <div class="list-pagination">
@@ -30,6 +36,11 @@ const { modalData, modalShow, closeModal, openModal, editModal } = useModalDataI
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    .create-item {
+        margin-bottom: 20px;
+        margin-left: 10px;
+    }
 
     .list-pagination {
         display: flex;

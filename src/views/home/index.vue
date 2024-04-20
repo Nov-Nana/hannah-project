@@ -133,4 +133,4 @@ const handleSetLineChartData = (type: 'newVisits' | 'messages' | 'purchases' | '
         padding: 8px;
     }
 }
-</style>@/components/Home/BoxCard
+</style>@/components/Home/BoxCard@/views/chart/ContentHeader/Charts

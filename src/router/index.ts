@@ -1,8 +1,8 @@
 import type { App } from 'vue'
 import { RouteRecordRaw, createRouter, createWebHashHistory } from 'vue-router'
 import { PageEnum } from '@/enums/pageEnum'
-import { HomeRoute, LoginRoute,OfficeRoute,ProjectRoute,OtherRoute } from './base'
-import {createRouterGuard} from './router-guards'
+import { HomeRoute, LoginRoute, OfficeRoute, ProjectRoute, OtherRoute, ConfigRoute } from './base'
+import { createRouterGuard } from './router-guards'
 import ChartRoutes from './chart'
 const Layout = () => import('../layout/index.vue')
 const rootRoute: RouteRecordRaw = {
@@ -13,18 +13,19 @@ const rootRoute: RouteRecordRaw = {
     meta: {
         title: 'Root'
     },
-    children:[
+    children: [
         HomeRoute,
+        ConfigRoute,
         OfficeRoute,
         ProjectRoute,
-        OtherRoute,
-        ChartRoutes
+        OtherRoute
     ]
 
 }
 const routes: RouteRecordRaw[] = [
     rootRoute,
     LoginRoute,
+    ChartRoutes
 ]
 
 const router = createRouter({
@@ -35,4 +36,4 @@ export function setupRouter(app: App<Element>) {
     app.use(router)
     createRouterGuard(router)
 }
-export {router}
+export { router,routes }

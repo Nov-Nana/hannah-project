@@ -6,6 +6,9 @@ export enum PageEnum {
     // 首页
     BASE_HOME = '/home',
     BASE_HOME_NAME = 'Home',
+    // 配置路由
+    BASE_CONFIG = '/config',
+    BASE_CONFIG_NAME = 'Config',
 
     // 办公Office -> excel / table
     OFFICE = '/office',

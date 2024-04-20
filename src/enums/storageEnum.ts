@@ -5,4 +5,10 @@ export enum StorageEnum {
     STORAGE_DESIGN = 'STORAGE_DESIGN',
     // 用户信息
     STORAGE_USER_INFO = 'STORAGE_USER_INFO',
+
+    // 配置路由
+    STORAGE_ROUTES = 'STORAGE_ROUTES',
+
+    // 图标Layout
+    STORAGE_CHART_LAYOUT_STORE = 'STORAGE_CHART_LAYOUT_STORE',
 }

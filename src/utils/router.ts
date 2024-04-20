@@ -32,7 +32,7 @@ export const getPathByName = (pageName: string, param?: string) => {
     try {
         // 获取路由信息
         const pathData = router.resolve({ name: pageName })
-        return param ? pathData.href + param : pathData.href
+        return param ? (pathData as any)[param] : pathData
     } catch (e) {
         console.log('查询路由信息失败')
     }

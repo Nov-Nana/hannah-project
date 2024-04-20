@@ -1,5 +1,7 @@
-import { computed, ref } from "vue"
 
+import { computed, ref } from "vue"
+import { getUUID, getNowFormatDate, getPathByName, routerByPath } from '@/utils'
+import { ChartEnum } from "@/enums/pageEnum"
 
 export const useDataListInit = () => {
     const list = ref([
@@ -135,6 +137,32 @@ export const useDataListInit = () => {
         },
     ])
 
+    let createItem = ref()
+    // 创建
+    const handleCreate = () => {
+        window['$dialog'].warning({
+            title: '提示',
+            content: '确定要创建吗？',
+            positiveText: '确定',
+            negativeText: '取消',
+            onPositiveClick: () => {
+                const id = getUUID()
+                createItem.value = {
+                    "id": id,
+                    "projectName": "project",
+                    "state": -1,
+                    "createTime": getNowFormatDate(),
+                    "createUserId": "1",
+                    "isDelete": -1,
+                    "indexImage": "undefined",
+                    "remarks": null
+                }
+                const path = getPathByName(ChartEnum.CHART_HOME_NAME, 'href')
+                path && routerByPath(path,[id],undefined,true)
+            }
+        })
+    }
+
     // 删除
     const handleDelete = (id: string) => {
         window['$dialog'].warning({
@@ -149,9 +177,18 @@ export const useDataListInit = () => {
             }
         })
     }
+    // 修改发布状态
+    const handleSend = (id: string) => {
+        list.value.some((item) => {
+            if (item.id === id) {
+                item.state = item.state === 1 ? -1 : 1
+                return true
+            }
+        })
+    }
 
     const page = ref(1) // 当前页数
-    const itemCount = computed(()=>list.value.length) // 总数
+    const itemCount = computed(() => list.value.length) // 总数
     const pageSize = ref(12)
     const pageSizes = [12, 24, 36] // 每页条数
     const splitList = ref(list.value.slice(0, pageSize.value))
@@ -167,13 +204,16 @@ export const useDataListInit = () => {
 
     return {
         list,
+        handleCreate,
         handleDelete,
+        handleSend,
         page,
         pageSize,
         pageSizes,
         itemCount,
         splitList,
         updatePage,
-        updatePageSize
+        updatePageSize,
+
     }
 }

@@ -17,8 +17,8 @@ const global = {
     preview: 'Preview',
     upload: 'Upload',
     more: 'More',
-    unpublish: 'Unpublish',
-    publish: 'Publish',
+    unpublish: 'unpublish',
+    publish: 'publish',
 
 
     color_theme_title: 'Choose color',

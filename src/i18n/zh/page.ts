@@ -1,6 +1,7 @@
 export default {
     home: '主页',
     login: '登录',
+    config_router: '配置路由',
     office: 'Office',
     export_excel: '导出Excel',
     upload_excel: '上传Excel',

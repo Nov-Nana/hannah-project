@@ -16,7 +16,7 @@ const global = {
     preview: '预览',
     upload: '上传',
     more: '更多',
-    unpublish: '取消发布',
+    unpublish: '未发布',
     publish: '发布',
 
 

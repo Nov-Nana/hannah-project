@@ -21,6 +21,16 @@ export const LoginRoute: RouteRecordRaw = {
     }
 }
 
+export const ConfigRoute: RouteRecordRaw = {
+    path: PageEnum.BASE_CONFIG,
+    name: PageEnum.BASE_CONFIG_NAME,
+    component: () => import('@/views/config/index.vue'),
+    meta: {
+        title: 'Config',
+        activeMenuName: 'Config'
+    }
+}
+
 export const OfficeRoute: RouteRecordRaw = {
     path: PageEnum.OFFICE,
     name: PageEnum.OFFICE_NAME,

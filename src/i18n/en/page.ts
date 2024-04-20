@@ -2,6 +2,7 @@ export default {
     home: 'Home',
     login: 'Login',
     office: 'Office',
+    config_router: 'Config Router',
     export_excel: 'Export Excel',
     upload_excel: 'Upload Excel',
     drag_table: 'Drag Table',

@@ -22,7 +22,9 @@ import {
     EllipsisOutlined,
     LineOutlined,
     FullscreenOutlined,
-    FullscreenExitOutlined
+    FullscreenExitOutlined,
+    LayoutFilled,
+    SearchOutlined
 
 } from '@vicons/antd'
 import {
@@ -42,8 +44,25 @@ import {
     SendOutline,
     Trash,
     Grid,
-    LogoCss3
-
+    LogoCss3,
+    Construct,
+    BarChart,
+    Prism,
+    ArrowBack,
+    ArrowForward,
+    Browsers,
+    ChevronBackOutline,
+    Albums,
+    DocumentText,
+    Image,
+    Bonfire,
+    Cafe,
+    Layers,
+    List,
+    LaptopOutline,
+    Dice,
+    Podium,
+    Tennisball
 } from '@vicons/ionicons5'
 
 
@@ -65,7 +84,25 @@ const ionicons5 = {
     SendOutline,
     Trash,
     Grid,
-    LogoCss3
+    LogoCss3,
+    Construct,
+    BarChart,
+    Prism,
+    ArrowBack,
+    ArrowForward,
+    Browsers,
+    ChevronBackOutline,
+    Albums,
+    DocumentText,
+    Image,
+    Bonfire,
+    Cafe,
+    Layers,
+    List,
+    LaptopOutline,
+    Dice,
+    Podium,
+    Tennisball
 }
 
 const antd = {
@@ -92,7 +129,9 @@ const antd = {
     EllipsisOutlined,
     LineOutlined,
     FullscreenOutlined,
-    FullscreenExitOutlined
+    FullscreenExitOutlined,
+    LayoutFilled,
+    SearchOutlined
 }
 
 export const icon = {

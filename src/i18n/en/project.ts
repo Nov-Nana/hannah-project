@@ -1,4 +1,5 @@
 export default {
-    release: 'Release',
-    unrelease: 'Unrelease',
+    release: 'release',
+    unrelease: 'unrelease',
+    create: 'create item',
 }

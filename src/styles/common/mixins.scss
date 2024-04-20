@@ -17,6 +17,12 @@ $theme-dark: 'dark';
         background-color: themed($target);
     }
 }
+// 获取渐变背景色
+@mixin get-bg-image($target){
+    @include themeify {
+        background-image: themed($target);
+    }
+}
 
 // 获取文字颜色
 @mixin get-text-color($target) {
@@ -104,6 +110,9 @@ $light: (
     login-text-color: #686868,
     color-item-bg: rgba(218, 218, 218, 0.5),
     color-item-shadow: rgba(0, 0, 0, .08),
+    background-image:
+    linear-gradient(120deg, $--color-light-bg 0%, $--color-light-bg 100%),
+
 );
 $dark: (
     // 文字颜色
@@ -128,6 +137,9 @@ $dark: (
     login-text-color: rgb(196 196 196),
     color-item-bg: rgba(12, 12, 12, 0.5),
     color-item-shadow: rgba(205, 205, 205, 0.559),
+
+    background-image:
+    linear-gradient(120deg, $--color-dark-bg-1 0%, $--color-dark-bg-1 100%),
 );
 
 $themes: (
